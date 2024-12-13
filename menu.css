@@ -8,9 +8,9 @@
 /* Body and Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    color: #333;
+    color: #f1f1f1; /* Light text color */
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #2d2d2d; /* Dark background */
 }
 
 /* Hero Section */
@@ -46,12 +46,12 @@ body {
 /* Menu Section */
 #menu {
     padding: 60px 0;
-    background-color: #fff;
+    background-color: #333; /* Darker background for the menu */
 }
 
 #menu h2 {
     font-size: 2.5rem;
-    color: #333;
+    color: #f1f1f1; /* Light text for the title */
     margin-bottom: 50px;
 }
 
@@ -59,13 +59,14 @@ body {
 #menu h3 {
     font-size: 2rem;
     margin-bottom: 30px;
-    color: #333;
+    color: #f1f1f1; /* Light text for category titles */
 }
 
 /* Card Styles */
 .card {
     border: none;
     border-radius: 10px;
+    background-color: #444; /* Dark background for cards */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -102,7 +103,7 @@ body {
 
 /* Footer Section */
 footer {
-    background-color: #333;
+    background-color: #333; /* Dark footer */
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -138,29 +139,6 @@ footer p {
         max-height: 200px;
     }
 }
-/* Fade-in Effect for Sections */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-.hero {
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-#menu {
-    animation: fadeIn 2s ease-in-out;
-}
-
-/* Card Hover Animations */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
 
 /* Hover Effects on Buttons */
 .btn-warning {
@@ -172,53 +150,21 @@ footer p {
     transform: translateY(-5px);
 }
 
-/* Smooth Fade-In for Cards */
-.card-body {
-    opacity: 0;
-    animation: fadeIn 1s forwards;
+/* Remove Animation Effects */
+.hero {
+    /* Removed fade-in animation */
 }
 
-.card:nth-child(1) .card-body {
-    animation-delay: 0.2s;
+#menu {
+    /* Removed fade-in animation */
 }
 
-.card:nth-child(2) .card-body {
-    animation-delay: 0.4s;
+/* Card Hover Animations */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:nth-child(3) .card-body {
-    animation-delay: 0.6s;
-}
-
-/* Section Header Fade-In */
-h2, h3 {
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-}
-
-h2 {
-    animation-delay: 0.5s;
-}
-
-h3 {
-    animation-delay: 1s;
-}
-
-/* Hero Section Text Animation */
-.hero h1 {
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-    animation-delay: 0.5s;
-}
-
-.hero p {
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-    animation-delay: 1s;
-}
-
-.hero .btn-primary {
-    opacity: 0;
-    animation: fadeIn 1.5s forwards;
-    animation-delay: 1.5s;
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }

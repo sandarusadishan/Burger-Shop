@@ -1,40 +1,81 @@
-body {
-    font-family: Arial, sans-serif;
+/* Dark Body Background */
+body.bg-dark {
+    background-color: #000000; /* Pure black background */
+    color: #f1f1f1; /* Light text color for contrast */
+    background-image: url('asset/burgers/avocado-burger1.fb153f88_Z21grlr.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
 }
 
-.navbar {
-    background-color: #333;
+/* Navbar Dark Theme */
+.navbar.bg-black {
+    background-color: #1a1a1a; /* Darker black for navbar */
 }
 
-.navbar-brand {
-    font-weight: bold;
+.navbar-nav .nav-link {
+    color: #f1f1f1; /* Light color for nav links */
 }
 
+.navbar-nav .nav-link:hover {
+    color: #ff6347; /* Accent color for hover */
+}
+
+/* Cart Table with Dark Styling */
 .cart-table {
-    background-color: #fff;
+    background-color: #2c2c2c; /* Dark background for cart table */
     border-radius: 8px;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.table th {
-    background-color: #f8f9fa;
+.table-dark {
+    background-color: #333; /* Darker background for the table */
+    color: #f1f1f1; /* Light text color */
 }
 
-.table td {
-    vertical-align: middle;
+.table-dark th {
+    background-color: #444; /* Darker headers */
 }
 
-.btn {
-    font-size: 14px;
+.table-dark td {
+    color: #f1f1f1; /* Light text for table cells */
 }
 
-#total-price {
-    font-weight: bold;
+.table-dark tr:hover {
+    background-color: #555; /* Darker row color on hover */
 }
 
-@media (max-width: 768px) {
-    .cart-table table {
-        font-size: 12px;
+/* Button Styling */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+
+
+/* Animation for Burger Section (Slide In) */
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(100px); /* Start from the right */
     }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* End at its original position */
+    }
+}
+
+.burger-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.burger-section p {
+    font-size: 1rem;
 }

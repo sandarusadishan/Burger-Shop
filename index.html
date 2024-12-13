@@ -31,13 +31,18 @@
   </nav>
 
   <!-- Hero Section -->
-  <header class="py-5 text-center" style="background: url('images/hero-burger.jpg') no-repeat center; background-size: cover;">
-    <div class="container">
-      <h1 class="display-4 fw-bold text-light">Welcome to GrillMelt</h1>
-      <p class="lead">Delicious burgers delivered to your doorstep!</p>
-      <a href="menu.html" class="btn btn-warning btn-lg">Explore Menu</a>
-    </div>
-  </header>
+<header class="py-5 text-center position-relative" style="background: url('asset/burgers/l-intro-1662064407.jpg') no-repeat center; background-size: cover;">
+  <!-- Black Overlay -->
+  <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1;"></div>
+  
+  <!-- Content -->
+  <div class="container position-relative" style="z-index: 2;">
+    <h1 class="display-4 fw-bold text-light">Welcome to GrillMelt</h1>
+    <p class="lead">Delicious burgers delivered to your doorstep!</p>
+    <a href="menu.html" class="btn btn-warning btn-lg">Explore Menu</a>
+  </div>
+</header>
+
 
   <!-- About Us Section -->
   <section class="py-5">

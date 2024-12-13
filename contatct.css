@@ -8,7 +8,7 @@
 
 /* Overlay for transparent background */
 .overlay {
-    background: rgba(0, 0, 0, 0.5); /* Medium transparent background */
+   background-color: #333;
     width: 100%;
     height: 100%;
 }

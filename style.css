@@ -7,7 +7,7 @@ body {
 /* Navbar */
 .navbar {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out; /* Fade-in effect for navbar */
+  animation: fadeIn 1s ease-in-out;
 }
 
 .navbar-brand {
@@ -30,7 +30,7 @@ header {
   position: relative;
   color: white;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  animation: fadeIn 2s ease-in-out; /* Fade-in effect for hero section */
+  animation: fadeIn 2s ease-in-out;
 }
 
 header h1, header p {
@@ -40,7 +40,6 @@ header h1, header p {
 header .btn {
   font-size: 1.2rem;
   padding: 10px 20px;
-  animation: scaleUp 1s ease-out; /* Scale-up effect for buttons */
 }
 
 /* About Us Section */
@@ -74,7 +73,7 @@ section p {
   max-width: 350px;
   height: 400px; /* Fixed height for all cards */
   margin: 10px;
-  animation: scaleUp 0.5s ease-out; /* Scale-up animation for each card */
+  animation: scaleUp 0.5s ease-out;
 }
 
 .card:hover {
@@ -86,7 +85,6 @@ section p {
   border-bottom: 4px solid #ffc107;
   object-fit: cover;
   height: 200px; /* Fixed image height */
-  animation: fadeIn 1.5s ease-in-out; /* Fade-in effect for burger images */
 }
 
 .card-title {
@@ -117,7 +115,7 @@ footer {
   color: #888;
   padding: 60px 20px;
   text-align: center;
-  animation: fadeIn 2s ease-in-out; /* Fade-in effect for footer */
+  animation: fadeIn 2s ease-in-out;
 }
 
 footer p {
@@ -131,14 +129,13 @@ footer .footer-container {
   justify-content: space-around;
   gap: 30px;
   margin-top: 20px;
-  animation: slideIn 2s ease-in-out; /* Slide-in effect for footer container */
 }
 
 footer .footer-column {
   flex: 1;
   min-width: 200px;
   max-width: 300px;
-  animation: slideIn 1s ease-in-out; /* Slide-in effect for each footer column */
+  animation: slideIn 1s ease-in-out;
 }
 
 footer .footer-column h4 {
@@ -260,4 +257,25 @@ button.btn-warning:hover {
   header p {
       font-size: 0.9rem;
   }
+}
+.hero-section {
+  background: url('asset/burgers/l-intro-1662064407.jpg') no-repeat center;
+  background-size:contain;
+  position: 50%;
+  overflow: hidden;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
 }
