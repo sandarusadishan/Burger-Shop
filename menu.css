@@ -20,6 +20,9 @@ body {
     position: relative;
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    background-size: cover;
+    background-position: center;
+    height: 400px;
 }
 
 .hero .overlay {
