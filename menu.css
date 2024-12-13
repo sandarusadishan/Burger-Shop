@@ -1,148 +1,161 @@
-/* Global Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Resetting some default styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-a {
-    text-decoration: none;
+/* Body and Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f4f4f4;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Navbar Styles */
+/* Navbar */
 .navbar {
-    background-color: #333;
+    margin-bottom: 0;
+    z-index: 1000;
 }
 
-.navbar .navbar-brand {
+.navbar-brand {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #f8f9fa;
 }
 
-.navbar .navbar-nav .nav-link {
-    font-size: 1.2rem;
-    color: #f8f9fa;
-    padding: 0.5rem 1rem;
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.navbar .navbar-nav .nav-link:hover {
-    background-color: #f39c12;
-    border-radius: 5px;
+.navbar-nav .nav-link:hover {
+    color: #ff6347;
 }
 
-.navbar-toggler-icon {
-    background-color: #f8f9fa;
-}
-
-/* Hero Section Styles */
+/* Hero Section */
 .hero {
-    height: 60vh;
     background-size: cover;
     background-position: center;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 100px 0;
     position: relative;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 .hero .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 30px;
-    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     margin-bottom: 20px;
 }
 
 .hero p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 30px;
 }
 
 .hero .btn {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    background-color: #f39c12;
+    background-color: #ff6347;
     border: none;
-    border-radius: 5px;
 }
 
-.hero .btn:hover {
-    background-color: #e67e22;
-}
-
-/* Menu Section Styles */
+/* Menu Section */
 #menu {
-    background-color: #f4f4f4;
-    padding: 50px 0;
+    padding: 60px 0;
+    background-color: #fff;
 }
 
 #menu h2 {
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    color: #333;
+    margin-bottom: 50px;
 }
 
+/* Category Section */
+#menu h3 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Card Styles */
 .card {
     border: none;
+    border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.card:hover {
-    transform: translateY(-10px);
 }
 
 .card-img-top {
-    width: 100%;
-    height: 250px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    max-height: 250px;
     object-fit: cover;
-    border-bottom: 2px solid #f4f4f4;
 }
 
 .card-body {
-    text-align: center;
     padding: 20px;
 }
 
 .card-title {
-    font-size: 1.6rem;
-    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .card-text {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
-.card .btn {
-    background-color: #f39c12;
-    color: #fff;
-    padding: 10px 20px;
-    font-size: 1.2rem;
+.card .btn-warning {
+    background-color: #ff6347;
     border: none;
-    border-radius: 5px;
+    color: white;
 }
 
-.card .btn:hover {
-    background-color: #e67e22;
+.card .btn-warning:hover {
+    background-color: #e55347;
 }
 
-/* Footer Section Styles */
+/* Footer Section */
 footer {
     background-color: #333;
-    color: #f8f9fa;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
 }
 
 footer p {
-    font-size: 1.2rem;
     margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    #menu h2 {
+        font-size: 2rem;
+    }
+
+    #menu h3 {
+        font-size: 1.5rem;
+    }
+
+    .card-img-top {
+        max-height: 200px;
+    }
 }
