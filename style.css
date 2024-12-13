@@ -1,179 +1,263 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-  }
-  
-  /* Navbar */
-  .navbar {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  .nav-link {
-    font-size: 1rem;
-    margin-right: 15px;
-    transition: color 0.3s ease;
-  }
-  .nav-link:hover {
-    color: #ffc107;
-  }
-  
-  /* Hero Section */
-  header {
-    position: relative;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  header .btn {
-    font-size: 1.2rem;
-    padding: 10px 20px;
-  }
-  
-  /* About Us Section */
-  section {
-    padding: 60px 20px;
-  }
-  section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-  }
-  section p {
-    font-size: 1.1rem;
-  }
-  
-  /* Popular Burgers Section */
-  #menu {
-    background-color: #343a40;
-    color: #fff;
-    padding: 50px 20px;
-  }
-  .card {
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-  .card-img-top {
-    border-bottom: 4px solid #ffc107;
-  }
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  .card-text {
-    font-size: 0.95rem;
-    color: #ddd;
-  }
-  .card .btn {
-    background-color: #ffc107;
-    color: black;
-    border: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  .card .btn:hover {
-    background-color: #e0a800;
-  }
-  
-  /* Footer */
-  footer {
-    background-color: #111;
-    color: #888;
-    padding: 60px 20px;
-    text-align: center;
-  }
-  footer p {
-    margin: 0;
-    font-size: 0.9rem;
-  }
-  footer .footer-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30px;
-    margin-top: 20px;
-  }
-  footer .footer-column {
-    flex: 1;
-    min-width: 200px;
-    max-width: 300px;
-  }
-  footer .footer-column h4 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-    color: #ffc107;
-    text-transform: uppercase;
-  }
-  footer .footer-column p, footer .footer-column ul {
-    font-size: 0.95rem;
-    margin: 0;
-    list-style: none;
-    padding: 0;
-  }
-  footer .footer-column ul li {
-    margin-bottom: 8px;
-  }
-  footer .footer-column ul li a {
-    color: #888;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  footer .footer-column ul li a:hover {
-    color: #ffc107;
-  }
-  footer .social-icons {
-    margin-top: 20px;
-  }
-  footer .social-icons a {
-    color: #888;
-    margin: 0 10px;
-    font-size: 1.5rem;
-    transition: color 0.3s ease;
-  }
-  footer .social-icons a:hover {
-    color: #ffc107;
-  }
-  
-  footer .footer-line {
-    border-top: 1px solid #333;
-    margin: 20px auto;
-    width: 80%;
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
-    header h1 {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out; /* Fade-in effect for navbar */
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-link {
+  font-size: 1rem;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffc107;
+}
+
+/* Hero Section */
+header {
+  position: relative;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  animation: fadeIn 2s ease-in-out; /* Fade-in effect for hero section */
+}
+
+header h1, header p {
+  animation: slideIn 1.5s ease-in-out;
+}
+
+header .btn {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  animation: scaleUp 1s ease-out; /* Scale-up effect for buttons */
+}
+
+/* About Us Section */
+section {
+  padding: 60px 20px;
+}
+
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+section p {
+  font-size: 1.1rem;
+}
+
+/* Popular Burgers Section */
+#menu {
+  background-color: #343a40;
+  color: #fff;
+  padding: 50px 20px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 350px;
+  height: 400px; /* Fixed height for all cards */
+  margin: 10px;
+  animation: scaleUp 0.5s ease-out; /* Scale-up animation for each card */
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+  border-bottom: 4px solid #ffc107;
+  object-fit: cover;
+  height: 200px; /* Fixed image height */
+  animation: fadeIn 1.5s ease-in-out; /* Fade-in effect for burger images */
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+.card .btn {
+  background-color: #ffc107;
+  color: black;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn:hover {
+  background-color: #e0a800;
+}
+
+/* Footer */
+footer {
+  background-color: #111;
+  color: #888;
+  padding: 60px 20px;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out; /* Fade-in effect for footer */
+}
+
+footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+footer .footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 30px;
+  margin-top: 20px;
+  animation: slideIn 2s ease-in-out; /* Slide-in effect for footer container */
+}
+
+footer .footer-column {
+  flex: 1;
+  min-width: 200px;
+  max-width: 300px;
+  animation: slideIn 1s ease-in-out; /* Slide-in effect for each footer column */
+}
+
+footer .footer-column h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ffc107;
+  text-transform: uppercase;
+}
+
+footer .footer-column p, footer .footer-column ul {
+  font-size: 0.95rem;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-column ul li {
+  margin-bottom: 8px;
+}
+
+footer .footer-column ul li a {
+  color: #888;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .footer-column ul li a:hover {
+  color: #ffc107;
+}
+
+footer .social-icons {
+  margin-top: 20px;
+}
+
+footer .social-icons a {
+  color: #888;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+footer .social-icons a:hover {
+  color: #ffc107;
+}
+
+footer .footer-line {
+  border-top: 1px solid #333;
+  margin: 20px auto;
+  width: 80%;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Slide-In Animation */
+@keyframes slideIn {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+/* Scale Up Animation */
+@keyframes scaleUp {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Buttons Animation */
+button.btn-warning {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.btn-warning:hover {
+  background-color: #f1a000;
+  transform: scale(1.1);
+}
+
+/* Social Icons Animation */
+.social-icons a {
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  header h1 {
       font-size: 2rem;
-    }
-    header p {
+  }
+
+  header p {
       font-size: 1rem;
-    }
-    .card-title {
+  }
+
+  .card-title {
       font-size: 1rem;
-    }
-    footer .footer-container {
+  }
+
+  footer .footer-container {
       flex-direction: column;
       align-items: center;
-    }
   }
-  
-  @media (max-width: 576px) {
-    .btn {
+}
+
+@media (max-width: 576px) {
+  .btn {
       font-size: 0.9rem;
       padding: 8px 15px;
-    }
-    header h1 {
-      font-size: 1.8rem;
-    }
-    header p {
-      font-size: 0.9rem;
-    }
   }
-  
+
+  header h1 {
+      font-size: 1.8rem;
+  }
+
+  header p {
+      font-size: 0.9rem;
+  }
+}

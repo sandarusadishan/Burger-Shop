@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #333;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.cart-table {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.btn {
+    font-size: 14px;
+}
+
+#total-price {
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .cart-table table {
+        font-size: 12px;
+    }
+}
