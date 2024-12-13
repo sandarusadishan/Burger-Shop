@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Burger Shop</title>
-  <!-- Bootstrap CSS -->
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
+ 
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    .custom-card {
+      min-height: 350px;
+      max-width: 300px;
+      margin: 0 auto; 
+    }
+    .custom-card img {
+      max-height: 200px;
+      object-fit: cover; 
+    }
+  </style>
 </head>
 <body class="bg-dark text-light">
 
-  <!-- Navbar -->
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
       <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
@@ -30,12 +41,12 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+
 <header class="py-5 text-center position-relative" style="background: url('asset/burgers/l-intro-1662064407.jpg') no-repeat center; background-size: cover;">
   <!-- Black Overlay -->
   <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1;"></div>
   
-  <!-- Content -->
+
   <div class="container position-relative" style="z-index: 2;">
     <h1 class="display-4 fw-bold text-light">Welcome to GrillMelt</h1>
     <p class="lead">Delicious burgers delivered to your doorstep!</p>
@@ -44,7 +55,7 @@
 </header>
 
 
-  <!-- About Us Section -->
+
   <section class="py-5">
     <div class="container text-center">
       <h2 class="fw-bold">About Us</h2>
@@ -52,38 +63,37 @@
     </div>
   </section>
 
-  <!-- Popular Burgers Section -->
   <section id="menu" class="py-5 bg-secondary">
     <div class="container text-center">
-      <h2 class="fw-bold text-warning">Popular Burgers</h2>
-      <div class="row mt-4">
-        <div class="col-md-4">
-          <div class="card bg-dark text-light">
+      <h2 class="fw-bold text-warning">Popular Menu</h2>
+      <div class="row row-cols-1 row-cols-md-3 g-5 mt-4">
+        <div class="col">
+          <div class="card bg-dark text-light custom-card">
             <img src="asset/burgers/4589_4k.jpg" class="card-img-top" alt="Burger 1">
             <div class="card-body">
               <h5 class="card-title">Classic Cheeseburger</h5>
               <p class="card-text">A timeless favorite with fresh lettuce, tomato, and cheddar cheese.</p>
-              <button class="btn btn-warning">Add to Cart</button>
+              <button class="btn btn-warning" href="menu.html">Menu</button>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card bg-dark text-light">
+        <div class="col">
+          <div class="card bg-dark text-light custom-card">
             <img src="asset/bun/fresh-grilled-seafood-lemon-plate-generative-ai_188544-8288.avif" class="card-img-top" alt="Burger 2">
             <div class="card-body">
-              <h5 class="card-title">Spicy Chicken Burger</h5>
-              <p class="card-text">A crispy chicken patty with a kick of spicy mayo.</p>
-              <button class="btn btn-warning">Add to Cart</button>
+              <h5 class="card-title">Tuna Submarine</h5>
+              <p class="card-text">Fresh tuna with veggies and a tangy sauce, wrapped in a soft submarine roll.</p>
+              <button class="btn btn-warning" href="menu.html">Menu</button>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card bg-dark text-light">
+        <div class="col">
+          <div class="card bg-dark text-light custom-card">
             <img src="asset/french frise/6c46024a2d6a4a6499c5a1a62d8cdd5b.png" class="card-img-top" alt="Burger 3">
             <div class="card-body">
-              <h5 class="card-title">Veggie Delight</h5>
-              <p class="card-text">A wholesome vegetarian option with grilled veggies and avocado.</p>
-              <button class="btn btn-warning">Add to Cart</button>
+              <h5 class="card-title">Classic Fries</h5>
+              <p class="card-text">Golden and crispy fries, served with a side of ketchup.</p>
+              <button class="btn btn-warning" href="menu.html">Menu</button>
             </div>
           </div>
         </div>
@@ -91,7 +101,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
+
   <footer class="py-3 bg-black text-center">
     <div class="footer-container">
       <div class="footer-column">
@@ -119,7 +129,7 @@
     </div>
   </footer>
 
-  <!-- Bootstrap JS -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

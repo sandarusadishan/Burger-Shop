@@ -1,19 +1,18 @@
-/* Resetting some default styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and Global Styles */
+
 body {
     font-family: 'Arial', sans-serif;
-    color: #f1f1f1; /* Light text color */
+    color: #f1f1f1; 
     line-height: 1.6;
-    background-color: #2d2d2d; /* Dark background */
+    background-color: #2d2d2d; 
 }
 
-/* Hero Section */
+
 .hero {
     background-size: cover;
     background-position: center;
@@ -43,30 +42,29 @@ body {
     border: none;
 }
 
-/* Menu Section */
 #menu {
     padding: 60px 0;
-    background-color: #333; /* Darker background for the menu */
+    background-color: #333; 
 }
 
 #menu h2 {
     font-size: 2.5rem;
-    color: #f1f1f1; /* Light text for the title */
+    color: #f1f1f1; 
     margin-bottom: 50px;
 }
 
-/* Category Section */
+
 #menu h3 {
     font-size: 2rem;
     margin-bottom: 30px;
-    color: #f1f1f1; /* Light text for category titles */
+    color: #f1f1f1; 
 }
 
-/* Card Styles */
+
 .card {
     border: none;
     border-radius: 10px;
-    background-color: #444; /* Dark background for cards */
+    background-color: #444;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -101,9 +99,8 @@ body {
     background-color: #e55347;
 }
 
-/* Footer Section */
 footer {
-    background-color: #333; /* Dark footer */
+    background-color: #333; 
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -113,7 +110,7 @@ footer p {
     margin: 0;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .navbar-nav .nav-link {
         font-size: 1rem;
@@ -140,7 +137,6 @@ footer p {
     }
 }
 
-/* Hover Effects on Buttons */
 .btn-warning {
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
@@ -150,16 +146,7 @@ footer p {
     transform: translateY(-5px);
 }
 
-/* Remove Animation Effects */
-.hero {
-    /* Removed fade-in animation */
-}
 
-#menu {
-    /* Removed fade-in animation */
-}
-
-/* Card Hover Animations */
 .card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }

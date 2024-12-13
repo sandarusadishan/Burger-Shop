@@ -6,6 +6,7 @@ body {
     background-color: #f1f1f1;
 }
 
+
 .container-fluid {
     background-color: #333;
 }
@@ -25,7 +26,7 @@ input[type="text"] {
     transition: border 0.3s ease;
 }
 
-/* Input Focus Effect */
+
 input[type="email"]:focus,
 input[type="password"]:focus,
 input[type="text"]:focus {
@@ -33,7 +34,7 @@ input[type="text"]:focus {
     box-shadow: 0 0 8px rgba(2, 117, 216, 0.5);
 }
 
-/* Button Styles */
+
 button {
     border-radius: 25px;
     background-color: #0275d8;
@@ -46,7 +47,7 @@ button:hover {
     background-color: #0056b3;
 }
 
-/* Text Link Styles */
+
 p a {
     color: #0275d8;
     transition: color 0.3s ease;
@@ -57,19 +58,18 @@ p a:hover {
     text-decoration: underline;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .col-md-6 {
         padding: 20px;
     }
 }
 
-/* Animated Form Container */
 .form-container {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Animation for Smooth Fade-In Effect */
+
 @keyframes fadeIn {
     0% { opacity: 0; }
     100% { opacity: 1; }
