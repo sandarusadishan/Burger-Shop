@@ -1,76 +1,63 @@
-/* Body and Global Styles */
+/* General Dark Theme */
 body {
-    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
     margin: 0;
-    padding: 0;
-    background-color: #f1f1f1;
+    font-family: Arial, sans-serif;
 }
 
-
-.container-fluid {
-    background-color: #333;
-}
-
-h2 {
-    font-weight: 600;
-    color: #0275d8;
-}
-
-input[type="email"],
-input[type="password"],
-input[type="text"] {
+/* Form Container */
+.dark-card {
+    position: relative;
+    width: 380px;
+    background: #000;
+    color: #fff;
     border-radius: 10px;
-    border: 1px solid #ddd;
-    padding: 10px 15px;
-    font-size: 16px;
-    transition: border 0.3s ease;
+    overflow: hidden;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 238, 255, 0.6);
 }
 
-
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="text"]:focus {
-    border-color: #0275d8;
-    box-shadow: 0 0 8px rgba(2, 117, 216, 0.5);
+/* Glowing Animated Border */
+.dark-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 380px;
+    height: 500px;
+    background: linear-gradient(0deg, transparent, transparent, #00eeff, #00eeff);
+    z-index: -1;
+    transform-origin: bottom right;
+    animation: glowing-frame 6s linear infinite;
 }
 
-
-button {
-    border-radius: 25px;
-    background-color: #0275d8;
-    font-weight: 600;
-    padding: 12px;
-    transition: background-color 0.3s ease;
+@keyframes glowing-frame {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-button:hover {
-    background-color: #0056b3;
+/* Input Styling */
+.dark-input {
+    background: #222;
+    color: #fff;
+    border: 1px solid #00eeff;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 238, 255, 0.3);
 }
 
-
-p a {
-    color: #0275d8;
-    transition: color 0.3s ease;
+.dark-input:focus {
+    border: 2px solid #00eeff;
+    box-shadow: 0 0 10px #00eeff;
 }
 
-p a:hover {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-
-@media (max-width: 768px) {
-    .col-md-6 {
-        padding: 20px;
-    }
-}
-
-.form-container {
-    animation: fadeIn 1s ease-in-out;
-}
-
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+/* Password Toggle Eye Icon */
+.password-toggle {
+    position: absolute;
+    top: 65%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #00eeff;
+    font-size: 1.2rem;
 }

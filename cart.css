@@ -72,3 +72,9 @@ body.bg-dark {
 .burger-section p {
   font-size: 1rem;
 }
+
+.cart-table img {
+  width: 50px;
+  height: auto;
+  border-radius: 5px;
+}

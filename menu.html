@@ -1,222 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Burger Shop Menu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="menu.css" rel="stylesheet">
-</head>
-<body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="menu.css" rel="stylesheet" />
+    <style>
+      /* Smooth scrolling */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Card Hover Effect */
+      .card {
+        border: none;
+        border-radius: 10px;
+        background-color: #444;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      /* Button hover effect */
+      .btn-warning {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-warning:hover {
+        background-color: #e67e22;
+        transform: translateY(-5px);
+      }
+
+      /* Font */
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="menu.html">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contat.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="cart.html">Cart</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cart.html">Cart</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-    <header class="hero text-center text-white" style="background-image: url('/asset/burgers/l-intro-1662064407.jpg');">
-        <div class="overlay">
-            <h1>Welcome to 🍔 GrillMelt</h1>
-            <p>Our burgers are made fresh with the finest ingredients!</p>
-            <a href="#menu" class="btn btn-primary">Explore the Menu</a>
-        </div>
+    <header
+      class="hero text-center text-white"
+      style="background-image: url('/asset/burgers/l-intro-1662064407.jpg')"
+    >
+      <div class="overlay">
+        <h1>Welcome to 🍔 GrillMelt</h1>
+        <p>Our burgers are made fresh with the finest ingredients!</p>
+        <a href="#menu" class="btn btn-primary">Explore the Menu</a>
+      </div>
     </header>
 
     <section id="menu" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Menu</h2>
+      <div class="container">
+        <h2 class="text-center mb-5">Our Menu</h2>
 
-        
-            <div class="mb-5">
-                <h3>Burgers</h3>
-                <div class="row">
-              
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/burgers/288747_GettyImages_Avocado-Burger-mit-Beef-scaled.jpg" class="card-img-top" alt="Burger 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Classic Cheeseburger</h5>
-                                <p class="card-text">A delicious burger with a juicy patty, melted cheese, fresh lettuce, tomato, and pickles.</p>
-                                <p class="card-text"><strong>Price: LKR 900</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/burgers/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg" class="card-img-top" alt="Burger 2">
-                            <div class="card-body">
-                                <h5 class="card-title">BBQ Bacon Burger</h5>
-                                <p class="card-text">A smoky BBQ sauce, crispy bacon, lettuce, and cheese on a juicy beef patty.</p>
-                                <p class="card-text"><strong>Price: LKR 950</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/burgers/4589_4k.jpg" class="card-img-top" alt="Burger 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Veggie Burger</h5>
-                                <p class="card-text">A tasty plant-based patty with fresh veggies, topped with a special sauce.</p>
-                                <p class="card-text"><strong>Price: LKR 850</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Burgers Section -->
+        <div class="mb-5">
+          <h3>Burgers</h3>
+          <div class="row">
+            <!-- Burger 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/burgers/288747_GettyImages_Avocado-Burger-mit-Beef-scaled.jpg"
+                  class="card-img-top"
+                  alt="Burger 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Cheeseburger</h5>
+                  <p class="card-text">
+                    A delicious burger with a juicy patty, melted cheese, fresh
+                    lettuce, tomato, and pickles.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 900</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Classic Cheeseburger', 900)"
+                    >Order Now</a
+                  >
                 </div>
+              </div>
             </div>
-
-            <div class="mb-5">
-                <h3>Submarines</h3>
-                <div class="row">
-                  
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/bun/fresh-grilled-seafood-lemon-plate-generative-ai_188544-8288.avif" class="card-img-top" alt="Submarine 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Chicken Submarine</h5>
-                                <p class="card-text">A savory chicken patty with lettuce, tomato, and a special sauce.</p>
-                                <p class="card-text"><strong>Price: LKR 800</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/bun/istockphoto-619637444-612x612.jpg" class="card-img-top" alt="Submarine 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Tuna Submarine</h5>
-                                <p class="card-text">Fresh tuna with veggies and a tangy sauce, wrapped in a soft submarine roll.</p>
-                                <p class="card-text"><strong>Price: LKR 850</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-       
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/bun/ss1.webp" class="card-img-top" alt="Submarine 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Veggie Submarine</h5>
-                                <p class="card-text">A delicious assortment of fresh veggies with a light dressing.</p>
-                                <p class="card-text"><strong>Price: LKR 750</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Burger 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/burgers/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg"
+                  class="card-img-top"
+                  alt="Burger 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">BBQ Bacon Burger</h5>
+                  <p class="card-text">
+                    A smoky BBQ sauce, crispy bacon, lettuce, and cheese on a
+                    juicy beef patty.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 950</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('BBQ Bacon Burger', 950)"
+                    >Order Now</a
+                  >
                 </div>
+              </div>
             </div>
-
-         
-            <div class="mb-5">
-                <h3>French Fries</h3>
-                <div class="row">
-           
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/french frise/6c46024a2d6a4a6499c5a1a62d8cdd5b.png" class="card-img-top" alt="Fries 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Classic Fries</h5>
-                                <p class="card-text">Golden and crispy fries, served with a side of ketchup.</p>
-                                <p class="card-text"><strong>Price: LKR 400</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/french frise/french-fries.webp" class="card-img-top" alt="Fries 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Cheese Fries</h5>
-                                <p class="card-text">Fries topped with melted cheese and a hint of seasoning.</p>
-                                <p class="card-text"><strong>Price: LKR 450</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/french frise/Homemade-French-Fries_8.webp" class="card-img-top" alt="Fries 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Spicy Fries</h5>
-                                <p class="card-text">Fries with a spicy seasoning, perfect for those who like it hot!</p>
-                                <p class="card-text"><strong>Price: LKR 475</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Burger 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/burgers/4589_4k.jpg"
+                  class="card-img-top"
+                  alt="Burger 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Veggie Burger</h5>
+                  <p class="card-text">
+                    A tasty plant-based patty with fresh veggies, topped with a
+                    special sauce.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 850</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Veggie Burger', 850)"
+                    >Order Now</a
+                  >
                 </div>
+              </div>
             </div>
-
-            <div class="mb-5">
-                <h3>Drinks</h3>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/cola.webp" class="card-img-top" alt="Drink 1">
-                            <div class="card-body">
-                                <h5 class="card-title">Cola</h5>
-                                <p class="card-text">A refreshing soft drink to pair with your meal.</p>
-                                <p class="card-text"><strong>Price: LKR 300</strong></p>
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/sprite.jpg" class="card-img-top" alt="Drink 2">
-                            <div class="card-body">
-                                <h5 class="card-title">Sprite</h5>
-                                <p class="card-text">A fizzy, lemon-lime drink for a refreshing experience.</p>
-                                <p class="card-text"><strong>Price: LKR 350</strong></p> 
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card">
-                            <img src="asset/fanta.jpg" class="card-img-top" alt="Drink 3">
-                            <div class="card-body">
-                                <h5 class="card-title">Fanta</h5>
-                                <p class="card-text">A sweet and tangy orange-flavored drink.</p>
-                                <p class="card-text"><strong>Price: LKR 320</strong></p>
-                                <a href="#" class="btn btn-warning">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+          </div>
         </div>
+
+        <!-- Submarines Section -->
+        <div class="mb-5">
+          <h3>Submarines</h3>
+          <div class="row">
+            <!-- Submarine 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/bun/fresh-grilled-seafood-lemon-plate-generative-ai_188544-8288.avif"
+                  class="card-img-top"
+                  alt="Submarine 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Chicken Submarine</h5>
+                  <p class="card-text">
+                    A savory chicken patty with lettuce, tomato, and a special
+                    sauce.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 800</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Chicken Submarine', 800)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Submarine 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/bun/istockphoto-619637444-612x612.jpg"
+                  class="card-img-top"
+                  alt="Submarine 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Tuna Submarine</h5>
+                  <p class="card-text">
+                    Fresh tuna with veggies and a tangy sauce, wrapped in a soft
+                    submarine roll.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 850</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Tuna Submarine', 850)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Submarine 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/bun/ss1.webp"
+                  class="card-img-top"
+                  alt="Submarine 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Veggie Submarine</h5>
+                  <p class="card-text">
+                    A delicious assortment of fresh veggies with a light
+                    dressing.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 750</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Veggie Submarine', 750)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- French Fries Section -->
+        <div class="mb-5">
+          <h3>French Fries</h3>
+          <div class="row">
+            <!-- Fries 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/french frise/6c46024a2d6a4a6499c5a1a62d8cdd5b.png"
+                  class="card-img-top"
+                  alt="Fries 1"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Fries</h5>
+                  <p class="card-text">
+                    Golden and crispy fries, served with a side of ketchup.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 400</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Classic Fries', 400)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Fries 2 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/french frise/french-fries.webp"
+                  class="card-img-top"
+                  alt="Fries 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cheese Fries</h5>
+                  <p class="card-text">
+                    Fries topped with melted cheese and a hint of seasoning.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 450</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Cheese Fries', 450)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Fries 3 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/french frise/Homemade-French-Fries_8.webp"
+                  class="card-img-top"
+                  alt="Fries 3"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Spicy Fries</h5>
+                  <p class="card-text">
+                    Fries with a spicy seasoning, perfect for those who like it
+                    hot!
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 475</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Spicy Fries', 475)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks Section -->
+        <div class="mb-5">
+          <h3>Drinks</h3>
+          <div class="row">
+            <!-- Drink 1 -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="asset/cola.webp" class="card-img-top" alt="Drink 1" />
+                <div class="card-body">
+                  <h5 class="card-title">Cola</h5>
+                  <p class="card-text">
+                    A refreshing soft drink to pair with your meal.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 300</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Cola', 300)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Drink 2 -->
+            <!-- Drink 2 (Sprite) -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img
+                  src="asset/sprite.jpg"
+                  class="card-img-top"
+                  alt="Drink 2"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Sprite</h5>
+                  <p class="card-text">
+                    A fizzy, lemon-lime drink for a refreshing experience.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 350</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Sprite', 350)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Drink 3 (Fanta) -->
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <img src="asset/fanta.jpg" class="card-img-top" alt="Drink 3" />
+                <div class="card-body">
+                  <h5 class="card-title">Fanta</h5>
+                  <p class="card-text">
+                    A sweet and tangy orange-flavored drink.
+                  </p>
+                  <p class="card-text"><strong>Price: LKR 320</strong></p>
+                  <a
+                    href="#"
+                    class="btn btn-warning"
+                    onclick="addToCart('Fanta', 320)"
+                    >Order Now</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer class="bg-black text-white text-center py-3">
-        <p>&copy; 2024 GrillMelt. All rights reserved.</p>
+    <footer class="bg-dark text-white py-4 text-center">
+      <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      function addToCart(item, price) {
+        alert(item + " has been added to your cart for LKR " + price);
+      }
+    </script>
+  </body>
 </html>
