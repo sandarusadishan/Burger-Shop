@@ -7,7 +7,58 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/cart.css">
-    
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .table-responsive {
+            margin-top: 50px;
+        }
+
+        .table thead th {
+            border-bottom: 2px solid #ffcc00;
+        }
+
+        .table tbody tr:hover {
+            background-color: #333;
+        }
+
+        .btn-generate-pdf {
+            background-color: #ffcc00;
+            color: #000;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-generate-pdf:hover {
+            background-color: #e6b800;
+            transform: translateY(-5px);
+        }
+
+        .btn-danger {
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-danger:hover {
+            background-color: #ff4d4d;
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body class="bg-black text-light">
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -113,7 +164,11 @@
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
 
+            doc.setFontSize(18);
+            doc.setTextColor(40, 40, 40);
             doc.text('GrillMelt - Your Order', 10, 10);
+            doc.setFontSize(12);
+            doc.setTextColor(60, 60, 60);
             let y = 20;
 
             cart.forEach(cartItem => {
@@ -121,6 +176,8 @@
                 y += 10;
             });
 
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
             doc.text(`Total: LKR ${document.getElementById('cart-total').innerText}`, 10, y + 10);
             doc.save('bill.pdf');
         }
