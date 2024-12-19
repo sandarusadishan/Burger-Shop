@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - GrillMelt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="contatct.css" rel="stylesheet">
+    <link href="css/contatct.css" rel="stylesheet">
 </head>
 <body>
 
-
+<!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-black">
     <div class="container">
         <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
@@ -22,35 +22,33 @@
                 <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
                 <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                 <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                <li class="nav-item"><a class="nav-link active" href="contat.html">Contact Us</a></li>
+                <li class="nav-item"><a class="nav-link nav-link text-light" href="contact.html">Contact Us</a></li>
             </ul>
         </div>
     </div>
 </nav>
 
-
-<div class="contact-section bg-cover">
+<!-- Contact Section -->
+<div class="contact-section bg-black">
     <div class="overlay">
         <div class="container d-flex justify-content-center align-items-center vh-100">
-            <div class="row w-100 justify-content-center">
-                <div class="col-md-6 col-lg-4 bg-light rounded shadow-lg p-5 form-container">
-                    <h2 class="text-center text-primary mb-4">Contact Us</h2>
-                    <form action="#" method="POST">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Your Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Your Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100 py-2">Send Message</button>
-                    </form>
-                </div>
+            <div class="form-container col-md-6 col-lg-4 p-4">
+                <h2 class="text-center text-dark mb-4 fw-bold">Contact Us</h2>
+                <form action="#" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label text-dark">Your Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label text-dark">Your Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label text-dark">Your Message</label>
+                        <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-warning w-100 fw-bold">Send Message</button>
+                </form>
             </div>
         </div>
     </div>

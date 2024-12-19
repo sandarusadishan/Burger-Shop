@@ -1,0 +1,137 @@
+/* General Body Styles */
+body {
+    background-color: #111; /* Dark background for the body */
+    color: #111; /* Light text color for readability */
+}
+
+/* Admin Panel Styles */
+#manageUsers, #manageOrders, #manageMenu {
+    background-color: #2a2a2a; /* Dark background for sections */
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styles */
+.table thead {
+    background-color: #333; /* Dark header */
+    color: #fff; /* Light text for header */
+}
+
+.table tbody tr {
+    background-color: #444; /* Dark background for rows */
+}
+
+.table tbody tr:hover {
+    background-color: #555; /* Slightly lighter on hover */
+}
+
+.table td, .table th {
+    color: #fff; /* Light color for text in table */
+}
+
+/* Navigation Menu */
+.navbar {
+    background-color: #000; /* Dark navbar */
+    padding: 1rem;
+}
+
+.navbar .nav-link {
+    color: #f1f1f1; /* Light text color for links */
+    font-weight: bold;
+}
+
+.navbar .nav-link:hover {
+    color: #ffbb33; /* Highlight color for hover */
+}
+
+/* Sidebar Styles */
+.list-group-item {
+    background-color: #333; /* Dark sidebar items */
+    color: #fff; /* Light text color */
+}
+
+.list-group-item:hover {
+    background-color: #444; /* Lighter color on hover */
+}
+
+/* Button Styles */
+.btn-warning {
+    background-color: #ffbb33; /* Vibrant yellow for action buttons */
+    color: #fff;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #ffaa00; /* Slightly darker on hover */
+}
+
+.btn-success {
+    background-color: #28a745; /* Green for success actions */
+    color: #fff;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.btn-danger {
+    background-color: #dc3545; /* Red for danger actions */
+    color: #fff;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+/* Footer Styles */
+footer {
+    background-color: #222; /* Dark footer */
+    color: #fff; /* Light footer text */
+    padding: 1.5rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Headings and Text */
+h2, h3 {
+    color: #ffbb33; /* Highlight color for headings */
+    font-weight: bold;
+}
+
+/* Form Inputs */
+.form-control {
+    background-color: #333; /* Dark input fields */
+    color: #fff; /* Light text in inputs */
+    border: 1px solid #555; /* Lighter border for inputs */
+}
+
+.form-control:focus {
+    border-color: #ffbb33; /* Highlight color when focused */
+    background-color: #444; /* Slightly lighter background on focus */
+}
+
+/* Password Visibility Toggle */
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 35%;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px; /* Adjust padding for smaller screens */
+    }
+
+    .col-md-3, .col-md-9 {
+        width: 100%; /* Make columns full width on small screens */
+    }
+}

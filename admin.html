@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - GrillMelt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+     
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Dashboard -->
+    <div class="container mt-5">
+        
+        <h2 class="text-center text-light mb-4">Admin Dashboard</h2>
+
+        <!-- Admin Navigation -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#manageUsers" class="list-group-item list-group-item-action text-light">Manage Users</a>
+                    <a href="#manageOrders" class="list-group-item list-group-item-action text-light">Manage Orders</a>
+                    <a href="#manageMenu" class="list-group-item list-group-item-action text-light">Manage Menu</a>
+                </div>
+            </div>
+
+            <!-- Admin Content -->
+            <div class="col-md-9">
+                <!-- Manage Users -->
+                <div id="manageUsers">
+                    <h3 class="text-light">Users</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Data -->
+                            <tr>
+                                <td>john_doe</td>
+                                <td>johndoe@example.com</td>
+                                <td><button class="btn btn-warning btn-sm">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>jane_doe</td>
+                                <td>janedoe@example.com</td>
+                                <td><button class="btn btn-warning btn-sm">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Manage Orders -->
+                <div id="manageOrders" class="mt-5">
+                    <h3 class="text-light">Orders</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>User</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Data -->
+                            <tr>
+                                <td>#12345</td>
+                                <td>john_doe</td>
+                                <td>Pending</td>
+                                <td><button class="btn btn-success btn-sm">Complete</button></td>
+                            </tr>
+                            <tr>
+                                <td>#12346</td>
+                                <td>jane_doe</td>
+                                <td>Completed</td>
+                                <td><button class="btn btn-danger btn-sm">Cancel</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Manage Menu -->
+                <div id="manageMenu" class="mt-5">
+                    <h3 class="text-light">Menu Items</h3>
+                    <table class="table table-bordered text-light">
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Example Data -->
+                            <tr>
+                                <td>Classic Burger</td>
+                                <td>$5.99</td>
+                                <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+                            </tr>
+                            <tr>
+                                <td>Cheese Burger</td>
+                                <td>$6.99</td>
+                                <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

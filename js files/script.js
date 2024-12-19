@@ -1,16 +1,16 @@
 let cart = [
-    { id: 1, name: "Classic Cheeseburger", price: 900, quantity: 1, image: "asset/burgers/classic-cheeseburger.jpg" },
-    { id: 2, name: "BBQ Bacon Burger", price: 950, quantity: 1, image: "asset/burgers/bbq-bacon-burger.jpg" },
-    { id: 3, name: "Veggie Burger", price: 850, quantity: 1, image: "asset/burgers/veggie-burger.jpg" },
-    { id: 4, name: "Chicken Submarine", price: 1100, quantity: 1, image: "asset/burgers/chicken-submarine.jpg" },
-    { id: 5, name: "Tuna Submarine", price: 1200, quantity: 1, image: "asset/burgers/tuna-submarine.jpg" },
-    { id: 6, name: "Veggie Submarine", price: 1000, quantity: 1, image: "asset/burgers/veggie-submarine.jpg" },
-    { id: 7, name: "Classic Fries", price: 300, quantity: 1, image: "asset/fries/classic-fries.jpg" },
-    { id: 8, name: "Cheese Fries", price: 350, quantity: 1, image: "asset/fries/cheese-fries.jpg" },
-    { id: 9, name: "Spicy Fries", price: 400, quantity: 1, image: "asset/fries/spicy-fries.jpg" },
-    { id: 10, name: "Coca-Cola", price: 250, quantity: 1, image: "asset/drinks/coca-cola.jpg" },
-    { id: 11, name: "Pepsi", price: 250, quantity: 1, image: "asset/drinks/pepsi.jpg" },
-    { id: 12, name: "7UP", price: 250, quantity: 1, image: "asset/drinks/7up.jpg" }
+    { id: 1, name: "Classic Cheeseburger", price: 900, quantity: 1, image: "asset/burgers/288747_GettyImages_Avocado-Burger-mit-Beef-scaled.jpg" },
+    { id: 2, name: "BBQ Bacon Burger", price: 950, quantity: 1, image: "asset/burgers/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg" },
+    { id: 3, name: "Veggie Burger", price: 850, quantity: 1, image: "asset/burgers/4589_4k.jpg" },
+    { id: 4, name: "Chicken Submarine", price: 1100, quantity: 1, image: "asset/bun/fresh-grilled-seafood-lemon-plate-generative-ai_188544-8288.avif" },
+    { id: 5, name: "Tuna Submarine", price: 1200, quantity: 1, image: "asset/bun/istockphoto-619637444-612x612.jpg" },
+    { id: 6, name: "Veggie Submarine", price: 1000, quantity: 1, image: "asset/bun/ss1.webp" },
+    { id: 7, name: "Classic Fries", price: 300, quantity: 1, image: "asset/french frise/6c46024a2d6a4a6499c5a1a62d8cdd5b.png" },
+    { id: 8, name: "Cheese Fries", price: 350, quantity: 1, image: "asset/french frise/french-fries.webp" },
+    { id: 9, name: "Spicy Fries", price: 400, quantity: 1, image: "asset/french frise/Homemade-French-Fries_8.webp" },
+    { id: 10, name: "Coca-Cola", price: 250, quantity: 1, image: "asset/cola.webp" },
+    { id: 11, name: "Sprite", price: 250, quantity: 1, image: "asset/sprite.jpg" },
+    { id: 12, name: "Fanta", price: 250, quantity: 1, image: "asset/fanta.jpg" }
 ];
 
 let discount = 0;
