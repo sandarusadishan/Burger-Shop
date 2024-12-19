@@ -6,10 +6,33 @@
     <title>Login - GrillMelt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .glass-card {
+            border: 3px solid #ffcc00; /* Yellow border for the form */
+            background: rgba(0, 0, 0, 0.6); /* Glass effect background */
+            width: 100%; /* Full width by default */
+            max-width: 400px; /* Restrict the maximum width for larger screens */
+            border-radius: 10px; /* Rounded corners */
+        }
+
+        .form-container {
+            margin-top: 100px; /* Moves the form down */
+            padding: 20px;
+        }
+
+        @media (max-width: 576px) {
+            .glass-card {
+                padding: 20px; /* Adjust padding for smaller screens */
+            }
+        }
+        .bgg{
+            background-color: black;
+        }
+    </style>
 </head>
-<body>
+<body class=" bgg">
+   
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-light" href="index.html">🍔 GrillMelt</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -17,17 +40,18 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link " href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link " href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link " href="cart.html">Cart</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
                     <li class="nav-item"><a class="nav-link text-light" href="login.html">Login</a></li>
                 </ul>
             </div>
         </div>
     </nav>
+</nav>
 
     <!-- Login Form -->
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="container d-flex justify-content-center align-items-center vh-100 form-container">
         <div class="glass-card p-5">
             <h2 class="text-center text-light mb-4 fw-bold">Welcome Back!</h2>
             <form id="loginForm">
@@ -46,6 +70,12 @@
         </div>
     </div>
 
-    <script src="js files/app.js"></script>
+    <script>
+        // Toggle Password Visibility
+        function togglePassword(fieldId) {
+            const field = document.getElementById(fieldId);
+            field.type = field.type === 'password' ? 'text' : 'password';
+        }
+    </script>
 </body>
 </html>

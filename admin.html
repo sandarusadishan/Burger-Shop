@@ -1,139 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard - GrillMelt</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Navbar -->
-     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
-                    <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item"><a class="nav-link" href="admin.html">Admin</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Cart - GrillMelt</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet"/>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <!-- Admin Dashboard -->
-    <div class="container mt-5">
-        
-        <h2 class="text-center text-light mb-4">Admin Dashboard</h2>
+      body {
+        font-family: "Poppins", sans-serif;
+        color: #f1f1f1;
+        background-color: #2d2d2d;
+      }
 
-        <!-- Admin Navigation -->
-        <div class="row">
-            <div class="col-md-3">
-                <div class="list-group">
-                    <a href="#manageUsers" class="list-group-item list-group-item-action text-light">Manage Users</a>
-                    <a href="#manageOrders" class="list-group-item list-group-item-action text-light">Manage Orders</a>
-                    <a href="#manageMenu" class="list-group-item list-group-item-action text-light">Manage Menu</a>
-                </div>
-            </div>
+      .sidebar {
+        background-color: #333;
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding-top: 20px;
+        z-index: 100;
+      }
 
-            <!-- Admin Content -->
-            <div class="col-md-9">
-                <!-- Manage Users -->
-                <div id="manageUsers">
-                    <h3 class="text-light">Users</h3>
-                    <table class="table table-bordered text-light">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Example Data -->
-                            <tr>
-                                <td>john_doe</td>
-                                <td>johndoe@example.com</td>
-                                <td><button class="btn btn-warning btn-sm">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td>jane_doe</td>
-                                <td>janedoe@example.com</td>
-                                <td><button class="btn btn-warning btn-sm">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+      .sidebar a {
+        color: white;
+        padding: 12px;
+        text-decoration: none;
+        display: block;
+        font-size: 1.1rem;
+      }
 
-                <!-- Manage Orders -->
-                <div id="manageOrders" class="mt-5">
-                    <h3 class="text-light">Orders</h3>
-                    <table class="table table-bordered text-light">
-                        <thead>
-                            <tr>
-                                <th>Order ID</th>
-                                <th>User</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Example Data -->
-                            <tr>
-                                <td>#12345</td>
-                                <td>john_doe</td>
-                                <td>Pending</td>
-                                <td><button class="btn btn-success btn-sm">Complete</button></td>
-                            </tr>
-                            <tr>
-                                <td>#12346</td>
-                                <td>jane_doe</td>
-                                <td>Completed</td>
-                                <td><button class="btn btn-danger btn-sm">Cancel</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+      .sidebar a:hover {
+        background-color: #575757;
+      }
 
-                <!-- Manage Menu -->
-                <div id="manageMenu" class="mt-5">
-                    <h3 class="text-light">Menu Items</h3>
-                    <table class="table table-bordered text-light">
-                        <thead>
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Price</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Example Data -->
-                            <tr>
-                                <td>Classic Burger</td>
-                                <td>$5.99</td>
-                                <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-                            </tr>
-                            <tr>
-                                <td>Cheese Burger</td>
-                                <td>$6.99</td>
-                                <td><button class="btn btn-warning btn-sm">Edit</button> <button class="btn btn-danger btn-sm">Delete</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+      .sidebar i {
+        margin-right: 8px;
+      }
+
+      .container {
+        margin-left: 270px;
+        padding: 20px;
+      }
+
+      .navbar {
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .cart-table {
+        margin-top: 20px;
+        background-color: #444;
+        border-radius: 10px;
+        padding: 20px;
+      }
+
+      .cart-table .table {
+        margin-bottom: 0;
+        color: #f1f1f1;
+      }
+
+      .cart-table th {
+        color: #ffc107;
+      }
+
+      .btn {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: #ff6347;
+        border: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #e55347;
+        transform: translateY(-5px);
+      }
+
+      .btn-success {
+        background-color: #28a745;
+        border: none;
+      }
+
+      .btn-success:hover {
+        background-color: #218838;
+      }
+
+      footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+        margin-top: 30px;
+      }
+
+      footer p {
+        margin: 0;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .sidebar {
+          position: fixed;
+          width: 100%;
+          height: auto;
+          padding-top: 10px;
+          top: 0;
+        }
+        .sidebar a {
+          padding: 10px;
+          text-align: center;
+        }
+        .container {
+          margin-left: 0;
+          padding: 10px;
+        }
+        .cart-table {
+          padding: 15px;
+        }
+      }
+
+      /* For Cart Item Image */
+      .cart-item-img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="admin-dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+      <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+      <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
+      <a href="cart.html"><i class="fa fa-basket"></i> Cart</a>
+      <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4">
-        <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+        <a class="navbar-brand" href="index.html">🍔 GrillMelt Admin</a>
+      </nav>
+
+      <h2 class="text-center mb-4">Manage Cart - Admin</h2>
+
+      <!-- Discount Section -->
+      <div class="mb-4">
+        <label for="promo-code" class="form-label">Enter Promo Code</label>
+        <input
+          type="text"
+          class="form-control"
+          id="promo-code"
+          placeholder="Enter Code"
+        />
+        <button class="btn btn-primary mt-2" onclick="applyDiscount()">
+          Apply Discount
+        </button>
+        <p class="text-success mt-2" id="discount-message"></p>
+      </div>
+
+      <div class="cart-table">
+        <table class="table table-striped table-dark">
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cart-items">
+            <!-- Example Cart Item -->
+            <tr>
+              <td>Cheese Burger</td>
+              <td><img src="asset/burgers/4589_4k.jpg" alt="Item Image" class="cart-item-img"></td>
+              <td>LKR 600</td>
+              <td><input type="number" class="form-control" value="1" min="1" style="width: 60px;"></td>
+              <td>LKR 600</td>
+              <td><button class="btn btn-danger btn-sm">Remove</button></td>
+            </tr>
+            <!-- More Items -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="d-flex justify-content-between mt-3">
+        <h4>Total: <span id="total-price">LKR 0.00</span></h4>
+        <button class="btn btn-success">Checkout</button>
+      </div>
+    </div>
+
+    <footer class="bg-dark text-white py-4 text-center">
+      <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+    <script>
+      // Example of applying discount logic
+      function applyDiscount() {
+        let promoCode = document.getElementById('promo-code').value;
+        if (promoCode === 'DISCOUNT10') {
+          document.getElementById('discount-message').innerText = 'Discount Applied! 10% off';
+        } else {
+          document.getElementById('discount-message').innerText = 'Invalid Promo Code';
+        }
+      }
+    </script>
+  </body>
 </html>

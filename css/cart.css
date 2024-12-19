@@ -78,3 +78,154 @@ body.bg-dark {
   height: auto;
   border-radius: 5px;
 }
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+  color: #f1f1f1;
+  background-color: #2d2d2d;
+  line-height: 1.6;
+}
+
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Cart Table */
+.cart-table {
+  margin-top: 20px;
+  background-color: #444;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.cart-table .table {
+  margin-bottom: 0;
+  color: #f1f1f1;
+}
+
+.cart-table th {
+  color: #ffc107;
+}
+
+/* Button Hover Effects */
+.btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #ff6347;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #e55347;
+  transform: translateY(-5px);
+}
+
+.btn-success {
+  background-color: #28a745;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+}
+
+/* Form Inputs */
+.form-control {
+  background-color: #444;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+.form-control:focus {
+  background-color: #555;
+  color: #fff;
+  border-color: #ffc107;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .navbar-nav .nav-link {
+    font-size: 1rem; /* Smaller font size for nav links */
+  }
+
+  .cart-table {
+    padding: 15px;
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.9rem; /* Smaller font size for table cells */
+  }
+
+  .btn {
+    font-size: 0.9rem; /* Adjust button font size */
+  }
+
+  /* Mobile-specific Layout Adjustments */
+  .container {
+    padding: 0 15px; /* Less padding on mobile */
+  }
+
+  .d-flex {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    align-items: center;
+  }
+
+  .d-flex button {
+    width: 100%; /* Make buttons full width on mobile */
+  }
+
+  .form-control {
+    width: 100%; /* Ensure form inputs are full width */
+  }
+
+  .cart-table th,
+  .cart-table td {
+    text-align: center; /* Center text on smaller screens */
+  }
+
+  .cart-table img {
+    width: 80px; /* Smaller image size for mobile */
+    height: auto;
+  }
+
+  .cart-table {
+    font-size: 0.9rem; /* Decrease font size in the table */
+  }
+
+  .btn-primary, .btn-success {
+    width: 100%; /* Full-width buttons */
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.2rem; /* Adjust navbar brand font size for very small screens */
+  }
+
+  .cart-table th,
+  .cart-table td {
+    font-size: 0.8rem; /* Make text even smaller for very small screens */
+  }
+}
