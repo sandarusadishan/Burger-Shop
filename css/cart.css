@@ -1,3 +1,11 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #f1f1f1;
+  background-color: #2d2d2d;
+  line-height: 1.6;
+}
+
 body.bg-dark {
   background-color: #000000;
   color: #f1f1f1;
@@ -8,8 +16,16 @@ body.bg-dark {
   margin: 0;
 }
 
-.navbar.bg-black {
+/* Navbar Styles */
+.navbar {
   background-color: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f1f1f1;
 }
 
 .navbar-nav .nav-link {
@@ -18,81 +34,6 @@ body.bg-dark {
 
 .navbar-nav .nav-link:hover {
   color: #ff6347;
-}
-
-.cart-table {
-  background-color: #2c2c2c;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.table-dark {
-  background-color: #333;
-  color: #f1f1f1;
-}
-
-.table-dark th {
-  background-color: #444;
-}
-
-.table-dark td {
-  color: #f1f1f1;
-}
-
-.table-dark tr:hover {
-  background-color: #555;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
-}
-
-@keyframes slide-in {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.burger-section h2 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-}
-
-.burger-section p {
-  font-size: 1rem;
-}
-
-.cart-table img {
-  width: 50px;
-  height: auto;
-  border-radius: 5px;
-}
-/* General Styles */
-body {
-  font-family: "Arial", sans-serif;
-  color: #f1f1f1;
-  background-color: #2d2d2d;
-  line-height: 1.6;
-}
-
-.navbar {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 /* Cart Table */
@@ -110,6 +51,23 @@ body {
 
 .cart-table th {
   color: #ffc107;
+}
+
+.table-dark {
+  background-color: #333;
+  color: #f1f1f1;
+}
+
+.table-dark th {
+  background-color: #444;
+}
+
+.table-dark td {
+  color: #f1f1f1;
+}
+
+.table-dark tr:hover {
+  background-color: #555;
 }
 
 /* Button Hover Effects */
@@ -134,6 +92,15 @@ body {
 
 .btn-success:hover {
   background-color: #218838;
+}
+
+.btn-generate-pdf {
+  background-color: #ffbb33;
+  border: none;
+}
+
+.btn-generate-pdf:hover {
+  background-color: #e6a800;
 }
 
 /* Form Inputs */

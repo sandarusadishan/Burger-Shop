@@ -1,137 +1,227 @@
 /* General Body Styles */
 body {
-    background-color: #111; /* Dark background for the body */
-    color: #111; /* Light text color for readability */
-}
-
-/* Admin Panel Styles */
-#manageUsers, #manageOrders, #manageMenu {
-    background-color: #2a2a2a; /* Dark background for sections */
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Table Styles */
-.table thead {
-    background-color: #333; /* Dark header */
-    color: #fff; /* Light text for header */
-}
-
-.table tbody tr {
-    background-color: #444; /* Dark background for rows */
-}
-
-.table tbody tr:hover {
-    background-color: #555; /* Slightly lighter on hover */
-}
-
-.table td, .table th {
-    color: #fff; /* Light color for text in table */
-}
-
-/* Navigation Menu */
-.navbar {
-    background-color: #000; /* Dark navbar */
-    padding: 1rem;
-}
-
-.navbar .nav-link {
-    color: #f1f1f1; /* Light text color for links */
-    font-weight: bold;
-}
-
-.navbar .nav-link:hover {
-    color: #ffbb33; /* Highlight color for hover */
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    background-color: #1f1f1f;
+    color: #fff;
+    overflow-x: hidden;
 }
 
 /* Sidebar Styles */
-.list-group-item {
-    background-color: #333; /* Dark sidebar items */
-    color: #fff; /* Light text color */
+.sidebar {
+    background: linear-gradient(180deg, #333, #000);
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: all 0.3s ease;
+    z-index: 100;
 }
 
-.list-group-item:hover {
-    background-color: #444; /* Lighter color on hover */
+.sidebar.collapsed {
+    width: 80px;
 }
 
-/* Button Styles */
-.btn-warning {
-    background-color: #ffbb33; /* Vibrant yellow for action buttons */
-    color: #fff;
-    border: none;
+.sidebar a {
+    color: white;
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.3s ease;
 }
 
-.btn-warning:hover {
-    background-color: #ffaa00; /* Slightly darker on hover */
+.sidebar a:hover {
+    background-color: #575757;
 }
 
-.btn-success {
-    background-color: #28a745; /* Green for success actions */
-    color: #fff;
-    border: none;
+.sidebar i {
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
 
-.btn-success:hover {
-    background-color: #218838; /* Darker green on hover */
+.sidebar .toggle-btn {
+    position: absolute;
+    top: 15px;
+    right: -25px;
+    background: #444;
+    color: white;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-danger {
-    background-color: #dc3545; /* Red for danger actions */
-    color: #fff;
-    border: none;
+/* Content Section */
+.container {
+    margin-left: 270px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
 }
 
-.btn-danger:hover {
-    background-color: #c82333; /* Darker red on hover */
+.container.collapsed {
+    margin-left: 90px;
 }
 
-/* Footer Styles */
-footer {
-    background-color: #222; /* Dark footer */
-    color: #fff; /* Light footer text */
-    padding: 1.5rem;
+.navbar {
+    background: #111;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
 }
 
-footer p {
-    margin: 0;
-}
-
-/* Headings and Text */
-h2, h3 {
-    color: #ffbb33; /* Highlight color for headings */
+.navbar .navbar-brand {
+    color: #ffbb33;
     font-weight: bold;
 }
 
-/* Form Inputs */
-.form-control {
-    background-color: #333; /* Dark input fields */
-    color: #fff; /* Light text in inputs */
-    border: 1px solid #555; /* Lighter border for inputs */
+.navbar .navbar-brand:hover {
+    color: #ffaa00;
 }
 
-.form-control:focus {
-    border-color: #ffbb33; /* Highlight color when focused */
-    background-color: #444; /* Slightly lighter background on focus */
+/* Dashboard Cards */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-/* Password Visibility Toggle */
-.password-toggle {
-    position: absolute;
-    right: 10px;
-    top: 35%;
-    cursor: pointer;
-    color: #fff;
+.card {
+    background: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Responsive adjustments */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card h3 {
+    color: #ffbb33;
+    margin-bottom: 15px;
+}
+
+.card p {
+    font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(90deg, #ff6347, #ff4500);
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    background: linear-gradient(90deg, #ff4500, #ff6347);
+}
+
+.btn-success:hover {
+    transform: scale(1.05);
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 15px; /* Adjust padding for smaller screens */
+    .sidebar {
+        width: 80px;
     }
 
-    .col-md-3, .col-md-9 {
-        width: 100%; /* Make columns full width on small screens */
+    .sidebar.collapsed {
+        width: 60px;
+    }
+
+    .container {
+        margin-left: 90px;
+    }
+}
+/* Modal and Form Styling */
+.modal-content {
+    background-color: #333;
+    color: white;
+}
+
+.modal-header {
+    border-bottom: 1px solid #444;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.form-label {
+    color: #ffbb33;
+}
+
+.form-control {
+    background-color: #444;
+    color: white;
+    border: 1px solid #555;
+}
+
+.form-control::placeholder {
+    color: #bbb;
+}
+
+.btn-primary {
+    background-color: #ffbb33;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #e6a800;
+}
+
+.table-dark {
+    background-color: #333;
+    color: white;
+}
+
+.table-dark th, .table-dark td {
+    border: 1px solid #444;
+}
+
+.table-dark thead th {
+    background-color: #444;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

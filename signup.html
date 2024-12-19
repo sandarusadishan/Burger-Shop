@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up - GrillMelt</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         .dark-card {
             border: 3px solid #ffcc00; /* Yellow border for the form */
@@ -29,13 +29,21 @@
             }
         }
 
-        .bg{
+        .bg {
             background-color: black;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ffcc00;
         }
     </style>
 </head>
 <body class="bg">
-    
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-light" href="index.html">🍔 GrillMelt</a>
@@ -88,6 +96,23 @@
             const field = document.getElementById(fieldId);
             field.type = field.type === 'password' ? 'text' : 'password';
         }
+
+        // Handle Sign-Up Form Submission
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            // Here you can add your logic to handle the sign-up process, e.g., sending data to the server
+            alert('Sign-Up Successful!');
+        });
     </script>
 </body>
 </html>

@@ -1,187 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart - GrillMelt</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-      rel="stylesheet"
-    />
-    <link href="css/cart.css" rel="stylesheet" />
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cart.css">
+    
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-light" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="cart.html">Cart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-      body {
-        font-family: "Arial", sans-serif;
-        color: #f1f1f1;
-        line-height: 1.6;
-        background-color: #2d2d2d;
-      }
-
-      .navbar {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      .navbar-brand {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
-
-      .cart-table {
-        margin-top: 20px;
-        background-color: #444;
-        border-radius: 10px;
-        padding: 20px;
-      }
-
-      .cart-table .table {
-        margin-bottom: 0;
-        color: #f1f1f1;
-      }
-
-      .cart-table th {
-        color: #ffc107;
-      }
-
-      .btn {
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      .btn-primary {
-        background-color: #ff6347;
-        border: none;
-      }
-
-      .btn-primary:hover {
-        background-color: #e55347;
-        transform: translateY(-5px);
-      }
-
-      .btn-success {
-        background-color: #28a745;
-        border: none;
-      }
-
-      .btn-success:hover {
-        background-color: #218838;
-      }
-
-      .form-control {
-        background-color: #444;
-        color: #f1f1f1;
-        border: 1px solid #555;
-      }
-
-      .form-control:focus {
-        background-color: #555;
-        color: #fff;
-        border-color: #ffc107;
-      }
-
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 20px 0;
-        margin-top: 30px;
-      }
-
-      footer p {
-        margin: 0;
-      }
-
-      @media (max-width: 768px) {
-        .navbar-nav .nav-link {
-          font-size: 1rem;
-        }
-
-        .cart-table {
-          padding: 15px;
-        }
-
-        .cart-table th,
-        .cart-table td {
-          font-size: 0.9rem;
-        }
-
-        .btn {
-          font-size: 0.9rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link text-light" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-light" href="cart.html">Cart</a>
-            </li>
-          </ul>
+    <div class="container">
+      <br><br>
+        <h2 class="text-center mb-5">Your Cart</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price (LKR)</th>
+                        <th>Quantity</th>
+                        <th>Total (LKR)</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
         </div>
-      </div>
-    </nav>
-
-    <div class="container py-5">
-      <h2 class="text-center mb-4">Your Cart</h2>
-
-      <!-- Discount Section -->
-      <div class="mb-4">
-        <label for="promo-code" class="form-label">Enter Promo Code</label>
-        <input
-          type="text"
-          class="form-control"
-          id="promo-code"
-          placeholder="Enter Code"
-        />
-        <button class="btn btn-primary mt-2" onclick="applyDiscount()">
-          Apply Discount
-        </button>
-        <p class="text-success mt-2" id="discount-message"></p>
-      </div>
-
-      <div class="cart-table">
-        <table class="table table-striped table-dark">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Image</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total</th>
-              <th>Remove</th>
-            </tr>
-          </thead>
-          <tbody id="cart-items"></tbody>
-        </table>
-      </div>
-
-      <div class="d-flex justify-content-between">
-        <h4>Total: <span id="total-price">LKR 0.00</span></h4>
-        <button class="btn btn-success">Checkout</button>
-      </div>
+        <div class="text-end">
+            <h4>Total: LKR <span id="cart-total">0</span></h4>
+            <button class="btn btn-generate-pdf mt-3" onclick="generatePDF()">Generate PDF</button>
+        </div>
     </div>
 
     <footer class="bg-dark text-white py-4 text-center">
-      <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
+        <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
     </footer>
 
-    <script src="js files/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
-</html>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        let cart = [
+            { item: 'Classic Cheeseburger', price: 900, quantity: 0 },
+            { item: 'BBQ Bacon Burger', price: 950, quantity: 0 },
+            { item: 'Veggie Burger', price: 850, quantity: 0 },
+            { item: 'Chicken Submarine', price: 850, quantity: 0 },
+            { item: 'Tuna Submarine', price: 850, quantity: 0 },
+            { item: 'Veggie Submarine', price: 750, quantity: 0 },
+            { item: 'Classic Fries', price: 400, quantity: 0 },
+            { item: 'Cheese Fries', price: 450, quantity: 0 },
+            { item: 'Spicy Fries', price: 500, quantity: 0 },
+            { item: 'Cola', price: 300, quantity: 0 },
+            { item: 'Sprite', price: 350, quantity: 0 },
+            { item: 'Fanta', price: 320, quantity: 0 }
+        ];
 
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            cartItems.innerHTML = '';
+            let total = 0;
+
+            cart.forEach((cartItem, index) => {
+                const itemTotal = cartItem.price * cartItem.quantity;
+                total += itemTotal;
+                cartItems.innerHTML += `
+                    <tr>
+                        <td>${cartItem.item}</td>
+                        <td>${cartItem.price}</td>
+                        <td>
+                            <input type="number" value="${cartItem.quantity}" min="1" class="form-control" onchange="updateQuantity(${index}, this.value)">
+                        </td>
+                        <td>${itemTotal}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Remove</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            cartTotal.innerText = total;
+        }
+
+        function updateQuantity(index, quantity) {
+            cart[index].quantity = parseInt(quantity);
+            updateCart();
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function generatePDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            doc.text('GrillMelt - Your Order', 10, 10);
+            let y = 20;
+
+            cart.forEach(cartItem => {
+                doc.text(`${cartItem.item} - LKR ${cartItem.price} x ${cartItem.quantity} = LKR ${cartItem.price * cartItem.quantity}`, 10, y);
+                y += 10;
+            });
+
+            doc.text(`Total: LKR ${document.getElementById('cart-total').innerText}`, 10, y + 10);
+            doc.save('bill.pdf');
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCart);
+    </script>
+</body>
+</html>

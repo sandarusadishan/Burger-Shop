@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - GrillMelt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+        <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+        <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
+        <a href="users.html"><i class="fa fa-users"></i> Users</a>
+        <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
+        <a href="manage-posts.html"><i class="fa fa-file-text"></i> Manage Posts</a>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">🍔 GrillMelt Admin</a>
+        </nav>
+        <h2 class="fade-in">Products</h2>
+        
+        <!-- Products Table -->
+        <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Add/Edit Product Modal -->
+        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="productModalLabel">Add/Edit Product</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="product-form">
+                            <div class="mb-3">
+                                <label for="product-name" class="form-label">Product Name</label>
+                                <input type="text" class="form-control" id="product-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product-price" class="form-label">Price</label>
+                                <input type="number" class="form-control" id="product-price" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product-stock" class="form-label">Stock</label>
+                                <input type="number" class="form-control" id="product-stock" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="product-image" class="form-label">Image</label>
+                                <input type="file" class="form-control" id="product-image" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn btn-success mt-3" onclick="openProductModal()">Add New Product</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        let products = [];
+        let editingProductIndex = null;
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            sidebar.classList.toggle('collapsed');
+            container.classList.toggle('collapsed');
+        }
+
+        // Open Product Modal
+        function openProductModal() {
+            document.getElementById('product-form').reset();
+            editingProductIndex = null;
+            const modal = new bootstrap.Modal(document.getElementById('productModal'));
+            modal.show();
+        }
+
+        // Handle Product Form Submission
+        document.getElementById('product-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('product-name').value;
+            const price = document.getElementById('product-price').value;
+            const stock = document.getElementById('product-stock').value;
+            const image = document.getElementById('product-image').files[0];
+
+            if (name && price && stock && image) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    if (editingProductIndex !== null) {
+                        products[editingProductIndex] = { name, price, stock, image: e.target.result };
+                    } else {
+                        products.push({ name, price, stock, image: e.target.result });
+                    }
+                    updateProductList();
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
+                    modal.hide();
+                };
+                reader.readAsDataURL(image);
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+
+        function editProduct(index) {
+            document.getElementById('product-name').value = products[index].name;
+            document.getElementById('product-price').value = products[index].price;
+            document.getElementById('product-stock').value = products[index].stock;
+            editingProductIndex = index;
+            const modal = new bootstrap.Modal(document.getElementById('productModal'));
+            modal.show();
+        }
+
+        function deleteProduct(index) {
+            products.splice(index, 1);
+            updateProductList();
+        }
+
+        function updateProductList() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = products.map((product, index) => `
+                <tr>
+                    <td>${product.name}</td>
+                    <td><img src="${product.image}" alt="${product.name}" width="50"></td>
+                    <td>${product.price}</td>
+                    <td>${product.stock}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

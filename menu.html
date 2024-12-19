@@ -79,6 +79,7 @@
             <li class="nav-item">
               <a class="nav-link" href="cart.html">Cart</a>
             </li>
+            <li class="nav-item"><a class="nav-link" href="#" onclick="logout()">Logout</a></li>
           </ul>
         </div>
       </div>
@@ -238,7 +239,7 @@
                   class="card-img-top"
                   alt="Submarine 3"
                 />
-                <div class="card-body">z
+                <div class="card-body">
                   <h5 class="card-title">Veggie Submarine</h5>
                   <p class="card-text">
                     A delicious assortment of fresh veggies with a light
@@ -321,7 +322,7 @@
                     Fries with a spicy seasoning, perfect for those who like it
                     hot!
                   </p>
-                  <p class="card-text"><strong>Price: LKR 475</strong></p>
+                  <p class="card-text"><strong>Price: LKR 500</strong></p>
                   <a
                     href="#"
                     class="btn btn-warning"
@@ -414,6 +415,23 @@
     <script>
       function addToCart(item, price) {
         alert(item + " has been added to your cart for LKR " + price);
+      }
+    </script>
+     <script>
+      // Check if the user is logged in
+      document.addEventListener('DOMContentLoaded', function() {
+          const isLoggedIn = localStorage.getItem('isLoggedIn');
+          if (!isLoggedIn) {
+              alert('You must be logged in to view the menu.');
+              window.location.href = 'login.html';
+          }
+      });
+
+      // Logout function
+      function logout() {
+          localStorage.removeItem('isLoggedIn');
+          alert('You have been logged out.');
+          window.location.href = 'login.html';
       }
     </script>
   </body>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users - GrillMelt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+        <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+        <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
+        <a href="users.html"><i class="fa fa-users"></i> Users</a>
+        <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
+        <a href="manage-posts.html"><i class="fa fa-file-text"></i> Manage Posts</a>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">🍔 GrillMelt Admin</a>
+        </nav>
+        <h2 class="fade-in">Users</h2>
+        
+        <!-- Users Table -->
+        <div class="table-responsive">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="user-list">
+                    <!-- Dynamic Rows -->
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Add/Edit User Modal -->
+        <div class="modal fade" id="userModal" tabindex="-1" aria-labelledby="userModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="userModalLabel">Add/Edit User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="user-form">
+                            <div class="mb-3">
+                                <label for="user-name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="user-name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="user-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="user-email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="user-role" class="form-label">Role</label>
+                                <select class="form-control" id="user-role" required>
+                                    <option value="admin">Admin</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="viewer">Viewer</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="btn btn-success mt-3" onclick="openUserModal()">Add New User</button>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/admin.js"></script>
+    <script>
+        let users = [];
+        let editingUserIndex = null;
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            sidebar.classList.toggle('collapsed');
+            container.classList.toggle('collapsed');
+        }
+
+        // Open User Modal
+        function openUserModal() {
+            document.getElementById('user-form').reset();
+            editingUserIndex = null;
+            const modal = new bootstrap.Modal(document.getElementById('userModal'));
+            modal.show();
+        }
+
+        // Handle User Form Submission
+        document.getElementById('user-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('user-name').value;
+            const email = document.getElementById('user-email').value;
+            const role = document.getElementById('user-role').value;
+
+            if (editingUserIndex !== null) {
+                users[editingUserIndex] = { name, email, role };
+            } else {
+                users.push({ name, email, role });
+            }
+
+            updateUserList();
+            const modal = bootstrap.Modal.getInstance(document.getElementById('userModal'));
+            modal.hide();
+        });
+
+        function editUser(index) {
+            document.getElementById('user-name').value = users[index].name;
+            document.getElementById('user-email').value = users[index].email;
+            document.getElementById('user-role').value = users[index].role;
+            editingUserIndex = index;
+            const modal = new bootstrap.Modal(document.getElementById('userModal'));
+            modal.show();
+        }
+
+        function deleteUser(index) {
+            users.splice(index, 1);
+            updateUserList();
+        }
+
+        function updateUserList() {
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = users.map((user, index) => `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.role}</td>
+                    <td>
+                        <button class="btn btn-warning btn-sm" onclick="editUser(${index})">Edit</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteUser(${index})">Delete</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    </script>
+</body>
+</html>

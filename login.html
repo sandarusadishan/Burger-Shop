@@ -8,30 +8,38 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         .glass-card {
-            border: 3px solid #ffcc00; /* Yellow border for the form */
-            background: rgba(0, 0, 0, 0.6); /* Glass effect background */
-            width: 100%; /* Full width by default */
-            max-width: 400px; /* Restrict the maximum width for larger screens */
-            border-radius: 10px; /* Rounded corners */
+            border: 3px solid #ffcc00; 
+            background: rgba(0, 0, 0, 0.6); 
+            width: 100%; 
+            max-width: 400px; 
+            border-radius: 10px; 
         }
 
         .form-container {
-            margin-top: 100px; /* Moves the form down */
+            margin-top: 100px;
             padding: 20px;
         }
 
         @media (max-width: 576px) {
             .glass-card {
-                padding: 20px; /* Adjust padding for smaller screens */
+                padding: 20px; 
             }
         }
-        .bgg{
+        .bgg {
             background-color: black;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ffcc00;
         }
     </style>
 </head>
-<body class=" bgg">
-   
+<body class="bgg">
     <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container">
             <a class="navbar-brand fw-bold text-light" href="index.html">🍔 GrillMelt</a>
@@ -48,7 +56,6 @@
             </div>
         </div>
     </nav>
-</nav>
 
     <!-- Login Form -->
     <div class="container d-flex justify-content-center align-items-center vh-100 form-container">
@@ -76,6 +83,21 @@
             const field = document.getElementById(fieldId);
             field.type = field.type === 'password' ? 'text' : 'password';
         }
+
+        // Handle Login Form Submission
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+
+            // Here you can add your logic to handle the login process, e.g., sending data to the server
+            // For demonstration, we assume the login is always successful
+            localStorage.setItem('isLoggedIn', 'true');
+            alert('Login Successful!');
+            window.location.href = 'menu.html'; // Redirect to menu page
+        });
+        
     </script>
+    
 </body>
 </html>

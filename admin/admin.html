@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - GrillMelt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+    <style>
+        /* Sidebar */
+        .sidebar {
+            background-color: #333;
+            height: 100vh;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding-top: 20px;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+        .sidebar.collapsed {
+            width: 70px;
+        }
+        .sidebar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .sidebar i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        .toggle-btn {
+            cursor: pointer;
+            color: white;
+            font-size: 24px;
+            text-align: right;
+            padding: 10px 20px;
+        }
+        .toggle-btn:hover {
+            color: #ffbb33;
+        }
+        .container {
+            margin-left: 250px;
+            transition: margin-left 0.3s ease;
+        }
+        .container.collapsed {
+            margin-left: 70px;
+        }
+        .navbar {
+            background-color: #111;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: #ffbb33 !important;
+        }
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .dashboard-cards .card {
+            background-color: #444;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .dashboard-cards .card:hover {
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            .container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+        <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+        <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
+        <a href="users.html"><i class="fa fa-users"></i> Users</a>
+        <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
+        <a href="manage-posts.html"><i class="fa fa-file-text"></i> Manage Posts</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="dashboard.html">🍔 GrillMelt Admin</a>
+        </nav>
+
+        <h2 class="fade-in">Admin Dashboard</h2>
+
+        <!-- Dashboard Widgets -->
+        <div class="dashboard-cards fade-in">
+            <div class="card">
+                <h3>Orders</h3>
+                <p>25 New Orders</p>
+                <button class="btn btn-primary">View</button>
+            </div>
+            <div class="card">
+                <h3>Revenue</h3>
+                <p>LKR 250,000</p>
+            </div>
+            <div class="card">
+                <h3>Users</h3>
+                <p>150 Active Users</p>
+            </div>
+            <div class="card">
+                <h3>Products</h3>
+                <p>50 Items in Stock</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Post Management Modal -->
+    <div class="modal fade" id="postManagementModal" tabindex="-1" aria-labelledby="postManagementModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="postManagementModalLabel">Manage Posts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Post Management Form -->
+                    <form id="postForm">
+                        <div class="mb-3">
+                            <label for="postTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="postTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postContent" class="form-label">Content</label>
+                            <textarea class="form-control" id="postContent" rows="3" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                    <div id="postActionOutput" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let posts = [];
+        let editingPostIndex = null;
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            sidebar.classList.toggle('collapsed');
+            container.classList.toggle('collapsed');
+        }
+
+        // Open Post Management
+        function openPostManagement() {
+            const modal = new bootstrap.Modal(document.getElementById('postManagementModal'));
+            modal.show();
+        }
+
+        // Handle Post Form Submission
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+
+            if (editingPostIndex !== null) {
+                posts[editingPostIndex] = { title, content };
+                document.getElementById('postActionOutput').innerHTML = '<p class="text-warning">Post Edited Successfully</p>';
+                editingPostIndex = null;
+            } else {
+                posts.push({ title, content });
+                document.getElementById('postActionOutput').innerHTML = '<p class="text-success">Post Added Successfully</p>';
+            }
+
+            document.getElementById('postForm').reset();
+            updatePostList();
+        });
+
+        function addPost() {
+            document.getElementById('postForm').reset();
+            editingPostIndex = null;
+            openPostManagement();
+        }
+
+        function editPost(index) {
+            document.getElementById('postTitle').value = posts[index].title;
+            document.getElementById('postContent').value = posts[index].content;
+            editingPostIndex = index;
+            openPostManagement();
+        }
+
+        function deletePost(index) {
+            posts.splice(index, 1);
+            document.getElementById('postActionOutput').innerHTML = '<p class="text-danger">Post Deleted Successfully</p>';
+            updatePostList();
+        }
+
+        function updatePostList() {
+            const postList = document.getElementById('postActionOutput');
+            postList.innerHTML = posts.map((post, index) => `
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">${post.title}</h5>
+                        <p class="card-text">${post.content}</p>
+                        <button class="btn btn-warning" onclick="editPost(${index})">Edit</button>
+                        <button class="btn btn-danger" onclick="deletePost(${index})">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

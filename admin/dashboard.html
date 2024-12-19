@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - GrillMelt</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="toggle-btn" onclick="toggleSidebar()">☰</div>
+        <a href="../index.html"><i class="fa fa-home"></i> Home</a>
+        <a href="dashboard.html"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="orders.html"><i class="fa fa-shopping-cart"></i> Orders</a>
+        <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
+        <a href="users.html"><i class="fa fa-users"></i> Users</a>
+        <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
+        <a href="manage-posts.html"><i class="fa fa-file-text"></i> Manage Posts</a>
+    </div>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#">🍔 GrillMelt Admin</a>
+        </nav>
+        <h2 class="fade-in">Dashboard</h2>
+        
+        <!-- Graphs Section -->
+        <div class="row">
+            <div class="col-md-6">
+                <canvas id="ordersChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="revenueChart"></canvas>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <canvas id="usersChart"></canvas>
+            </div>
+            <div class="col-md-6">
+                <canvas id="productsChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        // Orders Chart
+        const ordersCtx = document.getElementById('ordersChart').getContext('2d');
+        const ordersChart = new Chart(ordersCtx, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Orders',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        const revenueChart = new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12000, 19000, 3000, 5000, 2000, 3000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Users Chart
+        const usersCtx = document.getElementById('usersChart').getContext('2d');
+        const usersChart = new Chart(usersCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Active', 'Inactive', 'Pending'],
+                datasets: [{
+                    label: 'Users',
+                    data: [150, 50, 30],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(153, 102, 255, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Products Chart
+        const productsCtx = document.getElementById('productsChart').getContext('2d');
+        const productsChart = new Chart(productsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['In Stock', 'Out of Stock'],
+                datasets: [{
+                    label: 'Products',
+                    data: [50, 10],
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Toggle Sidebar
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const container = document.querySelector('.container');
+            sidebar.classList.toggle('collapsed');
+            container.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
