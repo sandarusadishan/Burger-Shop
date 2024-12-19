@@ -1,4 +1,3 @@
-/* General Dark Theme */
 body {
     background-color: #000;
     color: #fff;
@@ -6,7 +5,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Form Container */
 .dark-card {
     position: relative;
     width: 380px;
@@ -18,7 +16,7 @@ body {
     box-shadow: 0 0 15px rgba(0, 238, 255, 0.6);
 }
 
-/* Glowing Animated Border */
+
 .dark-card::before {
     content: '';
     position: absolute;
@@ -37,7 +35,7 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Input Styling */
+
 .dark-input {
     background: #222;
     color: #fff;
@@ -51,10 +49,9 @@ body {
     box-shadow: 0 0 10px #00eeff;
 }
 
-/* Password Toggle Eye Icon */
 .password-toggle {
     position: absolute;
-    top: 65%;
+    top: 50%;
     right: 15px;
     transform: translateY(-50%);
     cursor: pointer;

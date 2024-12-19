@@ -1,4 +1,4 @@
-/* General Body Styles */
+
 body {
     font-family: "Poppins", sans-serif;
     margin: 0;
@@ -7,7 +7,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Sidebar Styles */
+
 .sidebar {
     background: linear-gradient(180deg, #333, #000);
     height: 100vh;
@@ -58,7 +58,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Content Section */
+
 .container {
     margin-left: 270px;
     padding: 20px;
@@ -84,7 +84,7 @@ body {
     color: #ffaa00;
 }
 
-/* Dashboard Cards */
+
 .dashboard-cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -114,7 +114,7 @@ body {
     font-size: 1.1rem;
 }
 
-/* Buttons */
+
 .btn-primary {
     background: linear-gradient(90deg, #ff6347, #ff4500);
     color: white;
@@ -131,7 +131,7 @@ body {
     transform: scale(1.05);
 }
 
-/* Animations */
+
 .fade-in {
     animation: fadeIn 0.5s ease-in-out;
 }
@@ -147,7 +147,7 @@ body {
     }
 }
 
-/* Responsive Adjustments */
+
 @media (max-width: 768px) {
     .sidebar {
         width: 80px;
@@ -161,7 +161,7 @@ body {
         margin-left: 90px;
     }
 }
-/* Modal and Form Styling */
+
 .modal-content {
     background-color: #333;
     color: white;

@@ -7,12 +7,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
         .glass-card {
-            border: 3px solid #ffcc00; 
+            border: 3px solid #94833e; 
             background: rgba(0, 0, 0, 0.6); 
             width: 100%; 
             max-width: 400px; 
             border-radius: 10px; 
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .form-container {
@@ -25,8 +35,12 @@
                 padding: 20px; 
             }
         }
+
         .bgg {
-            background-color: black;
+            background-image: url('');
+            background: linear-gradient(135deg, 	#1B1212, 	#1B1212);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
         .password-toggle {
@@ -36,6 +50,34 @@
             transform: translateY(-50%);
             cursor: pointer;
             color: #ffcc00;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-warning {
+            background-color: #ffcc00;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6b800;
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -62,7 +104,7 @@
         <div class="glass-card p-5">
             <h2 class="text-center text-light mb-4 fw-bold">Welcome Back!</h2>
             <form id="loginForm">
-                <div class="mb-3">
+                <div class="mb-3 position-relative">
                     <label for="loginEmail" class="form-label text-light">Email</label>
                     <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" required>
                 </div>
@@ -78,26 +120,29 @@
     </div>
 
     <script>
-        // Toggle Password Visibility
         function togglePassword(fieldId) {
             const field = document.getElementById(fieldId);
             field.type = field.type === 'password' ? 'text' : 'password';
         }
 
-        // Handle Login Form Submission
         document.getElementById('loginForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
 
-            // Here you can add your logic to handle the login process, e.g., sending data to the server
-            // For demonstration, we assume the login is always successful
-            localStorage.setItem('isLoggedIn', 'true');
-            alert('Login Successful!');
-            window.location.href = 'menu.html'; // Redirect to menu page
+            const adminEmail = 'admin@grillmelt.com';
+            const adminPassword = 'admin123';
+
+            if (email === adminEmail && password === adminPassword) {
+                localStorage.setItem('isAdmin', 'true');
+                alert('Admin Login Successful!');
+                window.location.href = 'admin/admin.html'; 
+            } else {
+                localStorage.setItem('isLoggedIn', 'true');
+                alert('Login Successful!');
+                window.location.href = 'menu.html'; 
+            }
         });
-        
     </script>
-    
 </body>
 </html>

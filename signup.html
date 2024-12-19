@@ -7,30 +7,43 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+        }
+
         .dark-card {
-            border: 3px solid #ffcc00; /* Yellow border for the form */
-            background: rgba(0, 0, 0, 0.8); /* Keeps the background dark */
-            width: 100%; /* Full width by default */
-            max-width: 400px; /* Restrict the maximum width for larger screens */
+            border: 3px solid #ffcc00; 
+            background: rgba(0, 0, 0, 0.8); 
+            width: 100%; 
+            max-width: 400px; 
+            border-radius: 10px; 
+            padding: 30px;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .form-container {
-            margin-top: 100px; /* Moves only the form down */
+            margin-top: 100px; 
             padding: 20px;
         }
 
         .signup-btn {
-            margin-top: 20px; /* Adds space above the Sign Up button */
+            margin-top: 20px; 
         }
 
         @media (max-width: 576px) {
             .dark-card {
-                padding: 20px; /* Adjust padding for small screens */
+                padding: 20px; 
             }
         }
 
         .bg {
-            background-color: black;
+            background: linear-gradient(135deg, 	#1B1212, 	#1B1212);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
         }
 
         .password-toggle {
@@ -40,6 +53,34 @@
             transform: translateY(-50%);
             cursor: pointer;
             color: #ffcc00;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-warning {
+            background-color: #ffcc00;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-warning:hover {
+            background-color: #e6b800;
+            transform: translateY(-5px);
         }
     </style>
 </head>
@@ -62,7 +103,7 @@
     </nav>
 
     <!-- Sign-Up Form -->
-    <div class="container form-container d-flex justify-content-center align-items-center">
+    <div class="container form-container d-flex justify-content-center align-items-center vh-100">
         <div class="dark-card p-4 rounded shadow">
             <h2 class="text-center text-light mb-4 fw-bold">Sign Up</h2>
             <form id="signupForm">
@@ -110,7 +151,6 @@
                 return;
             }
 
-            // Here you can add your logic to handle the sign-up process, e.g., sending data to the server
             alert('Sign-Up Successful!');
         });
     </script>

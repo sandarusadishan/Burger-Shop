@@ -9,33 +9,11 @@
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
-  <style>
-
-    .custom-card {
-      min-height: 350px;
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    .custom-card img {
-      max-height: 200px;
-      object-fit: cover;
-    }
-    .card .btn {
-      background-color: #ffc107;
-      color: black;
-      border: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .card .btn:hover {
-      background-color: #e0a800;
-    }
-  </style>
 </head>
 <body class="bg-dark text-light">
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">🍔 GrillMelt</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -53,15 +31,13 @@
   </nav>
 
   <!-- Header Section -->
-  <header class="py-5 text-center position-relative" style="background: url('asset/burgers/l-intro-1662064407.jpg') no-repeat center; background-size: cover;">
-    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); z-index: 1;"></div>
-    <div class="container position-relative" style="z-index: 2;">
-      <h1 class="display-4 fw-bold text-light">Welcome to GrillMelt</h1>
+  <header class="header-section">
+    <div class="header-content">
+      <h1 class="display-4 fw-bold">Welcome to GrillMelt</h1>
       <p class="lead">Delicious burgers delivered to your doorstep!</p>
       <a href="menu.html" class="btn btn-warning btn-lg">Explore Menu</a>
     </div>
   </header>
-
 
   <!-- Menu Section -->
   <section id="menu" class="py-5 bg-secondary">
@@ -104,13 +80,15 @@
       </div>
     </div>
   </section>
-    <!-- About Us Section -->
-    <section class="py-5">
-      <div class="container text-center">
-        <h2 class="fw-bold">About Us</h2>
-        <p class="mt-3">We serve the juiciest, most flavorful burgers in town, crafted with fresh ingredients and love.</p>
-      </div>
-    </section>
+
+  <!-- About Us Section -->
+  <section class="about-section">
+    <div class="container">
+      <h2 class="fw-bold">About Us</h2>
+      <p class="mt-3">We serve the juiciest, most flavorful burgers in town, crafted with fresh ingredients and love.</p>
+    </div>
+  </section>
+
   <!-- Footer Section -->
   <footer class="py-3 bg-black text-center">
     <div class="footer-container">
