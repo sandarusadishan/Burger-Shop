@@ -52,11 +52,27 @@
             transform: translateY(-5px);
         }
 
+        .btn-discount {
+            background-color: #17a2b8;
+            color: #fff;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-discount:hover {
+            background-color: #138496;
+            transform: translateY(-5px);
+        }
+
         footer {
             background-color: #000;
             color: #fff;
             padding: 20px 0;
             text-align: center;
+        }
+
+        .discount-section {
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -86,6 +102,8 @@
                         <th>Item</th>
                         <th>Price (LKR)</th>
                         <th>Quantity</th>
+                        <th>Discount (%)</th>
+                        <th>Discount (LKR)</th>
                         <th>Total (LKR)</th>
                         <th>Actions</th>
                     </tr>
@@ -100,11 +118,7 @@
             <button class="btn btn-generate-pdf mt-3" onclick="generatePDF()">Generate PDF</button>
         </div>
     </div>
-  <!-- Payment Section -->
-           <div class="payment-section text-center">
-                <h4>Proceed to Payment</h4>
-                <button class="btn btn-generate-pdf mt-3" id="checkout-button">Pay Now</button>
-           </div>
+
     <footer class="bg-dark text-white py-4 text-center">
         <p>&copy; 2024 GrillMelt. All Rights Reserved.</p>
     </footer>
@@ -113,18 +127,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         let cart = [
-            { item: 'Classic Cheeseburger', price: 900, quantity: 0 },
-            { item: 'BBQ Bacon Burger', price: 950, quantity: 0 },
-            { item: 'Veggie Burger', price: 850, quantity: 0 },
-            { item: 'Chicken Submarine', price: 850, quantity: 0 },
-            { item: 'Tuna Submarine', price: 850, quantity: 0 },
-            { item: 'Veggie Submarine', price: 750, quantity: 0 },
-            { item: 'Classic Fries', price: 400, quantity: 0 },
-            { item: 'Cheese Fries', price: 450, quantity: 0 },
-            { item: 'Spicy Fries', price: 500, quantity: 0 },
-            { item: 'Cola', price: 300, quantity: 0 },
-            { item: 'Sprite', price: 350, quantity: 0 },
-            { item: 'Fanta', price: 320, quantity: 0 }
+            { item: 'Classic Cheeseburger', price: 900, quantity: 0, discountPercentage: 10 },
+            { item: 'BBQ Bacon Burger', price: 950, quantity: 0, discountPercentage: 0 },
+            { item: 'Veggie Burger', price: 850, quantity: 0, discountPercentage: 0 },
+            { item: 'Chicken Submarine', price: 850, quantity: 0, discountPercentage: 0 },
+            { item: 'Tuna Submarine', price: 850, quantity: 0, discountPercentage: 0 },
+            { item: 'Veggie Submarine', price: 750, quantity: 0, discountPercentage: 0 },
+            { item: 'Classic Fries', price: 400, quantity: 0, discountPercentage: 0 },
+            { item: 'Cheese Fries', price: 450, quantity: 0, discountPercentage: 0 },
+            { item: 'Spicy Fries', price: 500, quantity: 0, discountPercentage: 0 },
+            { item: 'Cola', price: 300, quantity: 0, discountPercentage: 0 },
+            { item: 'Sprite', price: 350, quantity: 0, discountPercentage: 0 },
+            { item: 'Fanta', price: 320, quantity: 0, discountPercentage: 0 }
         ];
 
         function updateCart() {
@@ -134,7 +148,8 @@
             let total = 0;
 
             cart.forEach((cartItem, index) => {
-                const itemTotal = cartItem.price * cartItem.quantity;
+                const discountAmount = (cartItem.price * cartItem.discountPercentage) / 100;
+                const itemTotal = (cartItem.price - discountAmount) * cartItem.quantity;
                 total += itemTotal;
                 cartItems.innerHTML += `
                     <tr>
@@ -143,6 +158,10 @@
                         <td>
                             <input type="number" value="${cartItem.quantity}" min="1" class="form-control" onchange="updateQuantity(${index}, this.value)">
                         </td>
+                        <td>
+                            <input type="number" value="${cartItem.discountPercentage}" min="0" max="100" class="form-control" onchange="updateDiscount(${index}, this.value)">
+                        </td>
+                        <td>${discountAmount}</td>
                         <td>${itemTotal}</td>
                         <td>
                             <button class="btn btn-danger btn-sm" onclick="removeItem(${index})">Remove</button>
@@ -156,6 +175,11 @@
 
         function updateQuantity(index, quantity) {
             cart[index].quantity = parseInt(quantity);
+            updateCart();
+        }
+
+        function updateDiscount(index, discountPercentage) {
+            cart[index].discountPercentage = parseInt(discountPercentage);
             updateCart();
         }
 
@@ -175,8 +199,9 @@
             doc.setTextColor(60, 60, 60);
             let y = 20;
 
-            cart.forEach(cartItem => {
-                doc.text(`${cartItem.item} - LKR ${cartItem.price} x ${cartItem.quantity} = LKR ${cartItem.price * cartItem.quantity}`, 10, y);
+            cart.filter(cartItem => cartItem.quantity > 0).forEach(cartItem => {
+                const discountAmount = (cartItem.price * cartItem.discountPercentage) / 100;
+                doc.text(`${cartItem.item} - LKR ${cartItem.price} x ${cartItem.quantity} - Discount: LKR ${discountAmount} = LKR ${(cartItem.price - discountAmount) * cartItem.quantity}`, 10, y);
                 y += 10;
             });
 

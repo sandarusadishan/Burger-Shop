@@ -7,7 +7,112 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
   <link href="css/menu.css" rel="stylesheet" />
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
+    .card {
+      border: none;
+      border-radius: 10px;
+      background-color: #444;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .btn-warning {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-warning:hover {
+      background-color: #e67e22;
+      transform: translateY(-5px);
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+    }
+
+    .hero {
+      background: url('asset/burgers/l-intro-1662064407.jpg') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav .nav-link {
+        font-size: 1rem;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      #menu h2 {
+        font-size: 2rem;
+      }
+
+      #menu h3 {
+        font-size: 1.5rem;
+      }
+
+      .card-img-top {
+        max-height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-black">
@@ -19,7 +124,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link text-light" href="menu.html">Menu</a></li>
-          <li class="nav-item"><a class="nav-link" href="contat.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
           <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
           <li class="nav-item"><a class="nav-link" href="index.html" onclick="logout()">Logout</a></li>
         </ul>
@@ -39,175 +144,10 @@
     <div class="container">
       <h2 class="text-center mb-5">Our Menu</h2>
 
-      <!-- Burgers Section -->
-      <div class="mb-5">
-        <h3>Burgers</h3>
-        <div class="row">
-          <!-- Burger 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/burgers/288747_GettyImages_Avocado-Burger-mit-Beef-scaled.jpg" class="card-img-top" alt="Burger 1" />
-              <div class="card-body">
-                <h5 class="card-title">Classic Cheeseburger</h5>
-                <p class="card-text">A delicious burger with a juicy patty, melted cheese, fresh lettuce, tomato, and pickles.</p>
-                <p class="card-text"><strong>Price: LKR 900</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Classic Cheeseburger', 900)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Burger 2 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/burgers/crispy-comte-cheesburgers-FT-RECIPE0921-6166c6552b7148e8a8561f7765ddf20b.jpg" class="card-img-top" alt="Burger 2" />
-              <div class="card-body">
-                <h5 class="card-title">BBQ Bacon Burger</h5>
-                <p class="card-text">A smoky BBQ sauce, crispy bacon, lettuce, and cheese on a juicy beef patty.</p>
-                <p class="card-text"><strong>Price: LKR 950</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('BBQ Bacon Burger', 950)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Burger 3 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/burgers/4589_4k.jpg" class="card-img-top" alt="Burger 3" />
-              <div class="card-body">
-                <h5 class="card-title">Veggie Burger</h5>
-                <p class="card-text">A tasty plant-based patty with fresh veggies, topped with a special sauce.</p>
-                <p class="card-text"><strong>Price: LKR 850</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Veggie Burger', 850)">Order Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Submarines Section -->
-      <div class="mb-5">
-        <h3>Submarines</h3>
-        <div class="row">
-          <!-- Submarine 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/bun/fresh-grilled-seafood-lemon-plate-generative-ai_188544-8288.avif" class="card-img-top" alt="Submarine 1" />
-              <div class="card-body">
-                <h5 class="card-title">Chicken Submarine</h5>
-                <p class="card-text">A savory chicken patty with lettuce, tomato, and a special sauce.</p>
-                <p class="card-text"><strong>Price: LKR 800</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Chicken Submarine', 800)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Submarine 2 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/bun/istockphoto-619637444-612x612.jpg" class="card-img-top" alt="Submarine 2" />
-              <div class="card-body">
-                <h5 class="card-title">Tuna Submarine</h5>
-                <p class="card-text">Fresh tuna with veggies and a tangy sauce, wrapped in a soft submarine roll.</p>
-                <p class="card-text"><strong>Price: LKR 850</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Tuna Submarine', 850)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Submarine 3 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/bun/ss1.webp" class="card-img-top" alt="Submarine 3" />
-              <div class="card-body">
-                <h5 class="card-title">Veggie Submarine</h5>
-                <p class="card-text">A delicious assortment of fresh veggies with a light dressing.</p>
-                <p class="card-text"><strong>Price: LKR 750</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Veggie Submarine', 750)">Order Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- French Fries Section -->
-      <div class="mb-5">
-        <h3>French Fries</h3>
-        <div class="row">
-          <!-- Fries 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/french frise/6c46024a2d6a4a6499c5a1a62d8cdd5b.png" class="card-img-top" alt="Fries 1" />
-              <div class="card-body">
-                <h5 class="card-title">Classic Fries</h5>
-                <p class="card-text">Golden and crispy fries, served with a side of ketchup.</p>
-                <p class="card-text"><strong>Price: LKR 400</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Classic Fries', 400)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Fries 2 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/french frise/french-fries.webp" class="card-img-top" alt="Fries 2" />
-              <div class="card-body">
-                <h5 class="card-title">Cheese Fries</h5>
-                <p class="card-text">Fries topped with melted cheese and a hint of seasoning.</p>
-                <p class="card-text"><strong>Price: LKR 450</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Cheese Fries', 450)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Fries 3 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/french frise/Homemade-French-Fries_8.webp" class="card-img-top" alt="Fries 3" />
-              <div class="card-body">
-                <h5 class="card-title">Spicy Fries</h5>
-                <p class="card-text">Fries with a spicy seasoning, perfect for those who like it hot!</p>
-                <p class="card-text"><strong>Price: LKR 500</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Spicy Fries', 500)">Order Now</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Drinks Section -->
-      <div class="mb-5">
-        <h3>Drinks</h3>
-        <div class="row">
-          <!-- Drink 1 -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/cola.webp" class="card-img-top" alt="Drink 1" />
-              <div class="card-body">
-                <h5 class="card-title">Cola</h5>
-                <p class="card-text">A refreshing soft drink to pair with your meal.</p>
-                <p class="card-text"><strong>Price: LKR 300</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Cola', 300)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Drink 2 (Sprite) -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/sprite.jpg" class="card-img-top" alt="Drink 2" />
-              <div class="card-body">
-                <h5 class="card-title">Sprite</h5>
-                <p class="card-text">A fizzy, lemon-lime drink for a refreshing experience.</p>
-                <p class="card-text"><strong>Price: LKR 350</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Sprite', 350)">Order Now</a>
-              </div>
-            </div>
-          </div>
-          <!-- Drink 3 (Fanta) -->
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <img src="asset/fanta.jpg" class="card-img-top" alt="Drink 3" />
-              <div class="card-body">
-                <h5 class="card-title">Fanta</h5>
-                <p class="card-text">A sweet and tangy orange-flavored drink.</p>
-                <p class="card-text"><strong>Price: LKR 320</strong></p>
-                <a href="#" class="btn btn-warning" onclick="addToCart('Fanta', 320)">Order Now</a>
-              </div>
-            </div>
-          </div>
+      <div id="product-section" class="mb-5">
+        <h3>Products</h3>
+        <div class="row" id="product-list">
+          <!-- Dynamic Product Rows -->
         </div>
       </div>
     </div>
@@ -222,8 +162,7 @@
     function addToCart(item, price) {
       alert(item + " has been added to your cart for LKR " + price);
     }
-  </script>
-  <script>
+
     // Check if the user is logged in
     document.addEventListener('DOMContentLoaded', function() {
       const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -231,6 +170,23 @@
         alert('You must be logged in to view the menu.');
         window.location.href = 'login.html';
       }
+
+      // Load products from localStorage
+      const products = JSON.parse(localStorage.getItem('products')) || [];
+      const productList = document.getElementById('product-list');
+      productList.innerHTML = products.map(product => `
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="${product.image}" class="card-img-top" alt="${product.name}" />
+            <div class="card-body">
+              <h5 class="card-title">${product.name}</h5>
+              <p class="card-text">${product.description}</p>
+              <p class="card-text">Price: LKR ${product.price}</p>
+              <a href="#" class="btn btn-warning" onclick="addToCart('${product.name}', ${product.price})">Order Now</a>
+            </div>
+          </div>
+        </div>
+      `).join('');
     });
 
     // Logout function

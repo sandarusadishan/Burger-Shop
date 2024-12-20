@@ -16,7 +16,6 @@
         <a href="products.html"><i class="fa fa-cogs"></i> Products</a>
         <a href="users.html"><i class="fa fa-users"></i> Users</a>
         <a href="settings.html"><i class="fa fa-cogs"></i> Settings</a>
-        <a href="manage-posts.html"><i class="fa fa-file-text"></i> Manage Posts</a>
     </div>
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-dark">
@@ -32,7 +31,6 @@
                         <th>Product Name</th>
                         <th>Image</th>
                         <th>Price</th>
-                        <th>Stock</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -61,8 +59,8 @@
                                 <input type="number" class="form-control" id="product-price" required>
                             </div>
                             <div class="mb-3">
-                                <label for="product-stock" class="form-label">Stock</label>
-                                <input type="number" class="form-control" id="product-stock" required>
+                                <label for="product-description" class="form-label">Description</label>
+                                <textarea class="form-control" id="product-description" rows="3" required></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="product-image" class="form-label">Image</label>
@@ -81,7 +79,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/admin.js"></script>
     <script>
-        let products = [];
+        let products = JSON.parse(localStorage.getItem('products')) || [];
         let editingProductIndex = null;
 
         // Toggle Sidebar
@@ -105,17 +103,18 @@
             event.preventDefault();
             const name = document.getElementById('product-name').value;
             const price = document.getElementById('product-price').value;
-            const stock = document.getElementById('product-stock').value;
+            const description = document.getElementById('product-description').value;
             const image = document.getElementById('product-image').files[0];
 
-            if (name && price && stock && image) {
+            if (name && price && description && image) {
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     if (editingProductIndex !== null) {
-                        products[editingProductIndex] = { name, price, stock, image: e.target.result };
+                        products[editingProductIndex] = { name, price, description, image: e.target.result };
                     } else {
-                        products.push({ name, price, stock, image: e.target.result });
+                        products.push({ name, price, description, image: e.target.result });
                     }
+                    localStorage.setItem('products', JSON.stringify(products));
                     updateProductList();
                     const modal = bootstrap.Modal.getInstance(document.getElementById('productModal'));
                     modal.hide();
@@ -129,7 +128,7 @@
         function editProduct(index) {
             document.getElementById('product-name').value = products[index].name;
             document.getElementById('product-price').value = products[index].price;
-            document.getElementById('product-stock').value = products[index].stock;
+            document.getElementById('product-description').value = products[index].description;
             editingProductIndex = index;
             const modal = new bootstrap.Modal(document.getElementById('productModal'));
             modal.show();
@@ -137,6 +136,7 @@
 
         function deleteProduct(index) {
             products.splice(index, 1);
+            localStorage.setItem('products', JSON.stringify(products));
             updateProductList();
         }
 
@@ -147,7 +147,7 @@
                     <td>${product.name}</td>
                     <td><img src="${product.image}" alt="${product.name}" width="50"></td>
                     <td>${product.price}</td>
-                    <td>${product.stock}</td>
+                    <td>${product.description}</td>
                     <td>
                         <button class="btn btn-warning btn-sm" onclick="editProduct(${index})">Edit</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">Delete</button>
@@ -155,6 +155,8 @@
                 </tr>
             `).join('');
         }
+
+        document.addEventListener('DOMContentLoaded', updateProductList);
     </script>
 </body>
 </html>
