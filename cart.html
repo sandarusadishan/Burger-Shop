@@ -44,11 +44,13 @@
         }
 
         .btn-danger {
+            background-color: #e6b800;
+            color: #000;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .btn-danger:hover {
-            background-color: #ff4d4d;
+            background-color: #333;
             transform: translateY(-5px);
         }
 
@@ -127,7 +129,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
         let cart = [
-            { item: 'Classic Cheeseburger', price: 900, quantity: 0, discountPercentage: 10 },
+            { item: 'Classic Cheeseburger', price: 900, quantity: 0, discountPercentage: 0 },
             { item: 'BBQ Bacon Burger', price: 950, quantity: 0, discountPercentage: 0 },
             { item: 'Veggie Burger', price: 850, quantity: 0, discountPercentage: 0 },
             { item: 'Chicken Submarine', price: 850, quantity: 0, discountPercentage: 0 },
