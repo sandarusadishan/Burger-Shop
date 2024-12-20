@@ -19,15 +19,24 @@
             background: rgba(0, 0, 0, 0.6); 
             width: 100%; 
             max-width: 400px; 
-            border-radius: 10px; 
+            border-radius: 0%; /* Rounded edges */
             padding: 30px;
             box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .form-container {
-            margin-top: 100px;
+            max-width: 400px;
+            margin: auto;
             padding: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px; /* Rounded edges for input fields */
+        }
+
+        .input-group-text {
+            border-radius: 0 10px 10px 0; /* Rounded edges for password toggle */
         }
 
         @media (max-width: 576px) {
@@ -38,16 +47,12 @@
 
         .bgg {
             background-image: url('');
-            background: linear-gradient(135deg, 	#1B1212, 	#1B1212);
+            background: linear-gradient(135deg, 	#fff, 	#1B1212);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
 
         .password-toggle {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
             cursor: pointer;
             color: #ffcc00;
         }
@@ -72,6 +77,7 @@
         .btn-warning {
             background-color: #ffcc00;
             border: none;
+            border-radius: 10px; /* Rounded edges for button */
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
@@ -100,7 +106,7 @@
     </nav>
 
     <!-- Login Form -->
-    <div class="container d-flex justify-content-center align-items-center vh-100 form-container">
+    <div class="container form-container d-flex justify-content-center align-items-center vh-100">
         <div class="glass-card p-5">
             <h2 class="text-center text-light mb-4 fw-bold">Welcome Back!</h2>
             <form id="loginForm">
@@ -110,8 +116,10 @@
                 </div>
                 <div class="mb-4 position-relative">
                     <label for="loginPassword" class="form-label text-light">Password</label>
-                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
-                    <span class="password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                        <span class="input-group-text password-toggle" onclick="togglePassword('loginPassword')">👁️</span>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-warning w-100 fw-bold">Log In</button>
             </form>

@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
-            background-color: #000;
+            background: linear-gradient(135deg, #1B1212, #1B1212);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
             color: #fff;
             font-family: 'Poppins', sans-serif;
             overflow: hidden;
@@ -16,22 +18,32 @@
 
         .dark-card {
             border: 3px solid #ffcc00; 
-            background: rgba(0, 0, 0, 0.8); 
+            background: rgba(0, 0, 0, 0.6); 
             width: 100%; 
             max-width: 400px; 
-            border-radius: 10px; 
+            border-radius: 10%; /* Rounded edges */
             padding: 30px;
             box-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
             animation: fadeIn 1.5s ease-in-out;
         }
 
         .form-container {
-            margin-top: 100px; 
+            max-width: 400px;
+            margin: auto;
             padding: 20px;
+        }
+
+        .form-control {
+            border-radius: 10px; /* Rounded edges for input fields */
+        }
+
+        .input-group-text {
+            border-radius: 0 10px 10px 0; /* Rounded edges for password toggle */
         }
 
         .signup-btn {
             margin-top: 20px; 
+            border-radius: 10px; /* Rounded edges for button */
         }
 
         @media (max-width: 576px) {
@@ -41,16 +53,12 @@
         }
 
         .bg {
-            background: linear-gradient(135deg, 	#1B1212, 	#1B1212);
+            background: linear-gradient(135deg, #fff, #1B1212);
             background-size: 400% 400%;
             animation: gradientBG 15s ease infinite;
         }
 
         .password-toggle {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
             cursor: pointer;
             color: #ffcc00;
         }
@@ -82,6 +90,15 @@
             background-color: #e6b800;
             transform: translateY(-5px);
         }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+        }
+      
     </style>
 </head>
 <body class="bg">
@@ -117,13 +134,17 @@
                 </div>
                 <div class="mb-3 position-relative">
                     <label for="password" class="form-label text-light">Password</label>
-                    <input type="password" class="form-control dark-input" id="password" placeholder="Enter password" required>
-                    <span class="password-toggle" onclick="togglePassword('password')">👁️</span>
+                    <div class="input-group">
+                        <input type="password" class="form-control dark-input" id="password" placeholder="Enter password" required>
+                        <span class="input-group-text password-toggle" onclick="togglePassword('password')">👁️</span>
+                    </div>
                 </div>
                 <div class="mb-4 position-relative">
                     <label for="confirmPassword" class="form-label text-light">Confirm Password</label>
-                    <input type="password" class="form-control dark-input" id="confirmPassword" placeholder="Confirm password" required>
-                    <span class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</span>
+                    <div class="input-group">
+                        <input type="password" class="form-control dark-input" id="confirmPassword" placeholder="Confirm password" required>
+                        <span class="input-group-text password-toggle" onclick="togglePassword('confirmPassword')">👁️</span>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-warning w-100 fw-bold signup-btn">Sign Up</button>
             </form>
